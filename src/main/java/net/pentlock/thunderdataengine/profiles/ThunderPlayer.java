@@ -48,7 +48,6 @@ public class ThunderPlayer {
     private long lastDeathTime;
     private int timesLoggedIn;
     private double moneyFromDrops;
-
     private long[] dataPlayTime;
     private double[] dataPvpDamage;
     private double[] dataPvpDefenseDamage;
@@ -56,6 +55,7 @@ public class ThunderPlayer {
     private double[] dataPveDefenseDamage;
     private double[] dataWealthGain;
     private double[] dataMoneyDrops;
+    private String[] context;
 
     public ThunderPlayer(String name, double money, int level, long exp, String grave, String graveWorld, int maxHealth, double currentHealth,
                          int luck, int physicalDefense, int archeryDefense, int physicalOffense, int archeryOffense, double criticalStrike,
@@ -64,7 +64,8 @@ public class ThunderPlayer {
                          int healthPerkPoints, int criticalStrikePerkPoints, int criticalPowerPerkPoints, Location lastTpLocation, String[] houses,
                          long logout, long login, boolean godMode, boolean acceptingPay, int playerKills, int mobKills, int deaths, int fallDeaths,
                          long totalPlayTime, long lastDeathTime, int timesLoggedIn, double moneyFromDrops, long[] dataPlayTime, double[] dataPvpDamage,
-                         double[] dataPvpDefenseDamage, double[] dataPveDamage, double[] dataPveDefenseDamage, double[] dataWealthGain, double[] dataMoneyDrops) {
+                         double[] dataPvpDefenseDamage, double[] dataPveDamage, double[] dataPveDefenseDamage, double[] dataWealthGain,
+                         double[] dataMoneyDrops, String[] context) {
         this.name = name;
         this.money = money;
         this.level = level;
@@ -114,6 +115,7 @@ public class ThunderPlayer {
         this.dataPveDefenseDamage = dataPveDefenseDamage;
         this.dataWealthGain = dataWealthGain;
         this.dataMoneyDrops = dataMoneyDrops;
+        this.context = context;
     }
 
     public String getName() {
@@ -506,5 +508,13 @@ public class ThunderPlayer {
 
     public void setDataMoneyDrops(double[] dataMoneyDrops) {
         this.dataMoneyDrops = dataMoneyDrops;
+    }
+
+    public String[] getContext() {
+        return context;
+    }
+
+    public void setContext(String[] context) {
+        this.context = context;
     }
 }
