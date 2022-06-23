@@ -1,0 +1,9 @@
+name: ThunderDataEngine
+version: '${project.version}'
+main: net.pentlock.thunderdataengine.ThunderDataEngine
+api-version: 1.19
+prefix: ThunderDataEngine
+loadbefore: [ ThunderCombatSystem, ThunderResourceControl, ThunderPlayerHousing ]
+authors: [ pentlock ]
+description: This is required to run anything in the thunder family.
+website: pentlock.net
