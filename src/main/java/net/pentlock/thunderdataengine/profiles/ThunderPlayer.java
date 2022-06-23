@@ -1,7 +1,5 @@
 package net.pentlock.thunderdataengine.profiles;
 
-import org.bukkit.Location;
-
 import java.util.Date;
 import java.util.UUID;
 
@@ -34,7 +32,6 @@ public class ThunderPlayer {
     private int healthPerkPoints;
     private int criticalStrikePerkPoints;
     private int criticalPowerPerkPoints;
-    private Location lastTpLocation;
     private String[] houses;
     private long logout;
     private long login;
@@ -56,16 +53,17 @@ public class ThunderPlayer {
     private double[] dataWealthGain;
     private double[] dataMoneyDrops;
     private String[] context;
+    private String[] lastKnownLocation;
 
     public ThunderPlayer(String name, double money, int level, long exp, String grave, String graveWorld, int maxHealth, double currentHealth,
                          int luck, int physicalDefense, int archeryDefense, int physicalOffense, int archeryOffense, double criticalStrike,
                          double criticalPower, Date dateCreated, UUID uuid, UUID guild, UUID party, boolean pvpEnabled, int perkPoints,
                          int physicalDefensePerkPoints, int archeryDefensePerkPoints, int physicalOffensePerkPoints, int archeryOffensePerkPoints,
-                         int healthPerkPoints, int criticalStrikePerkPoints, int criticalPowerPerkPoints, Location lastTpLocation, String[] houses,
+                         int healthPerkPoints, int criticalStrikePerkPoints, int criticalPowerPerkPoints, String[] houses,
                          long logout, long login, boolean godMode, boolean acceptingPay, int playerKills, int mobKills, int deaths, int fallDeaths,
                          long totalPlayTime, long lastDeathTime, int timesLoggedIn, double moneyFromDrops, long[] dataPlayTime, double[] dataPvpDamage,
                          double[] dataPvpDefenseDamage, double[] dataPveDamage, double[] dataPveDefenseDamage, double[] dataWealthGain,
-                         double[] dataMoneyDrops, String[] context) {
+                         double[] dataMoneyDrops, String[] context, String[] lastKnownLocation) {
         this.name = name;
         this.money = money;
         this.level = level;
@@ -94,7 +92,6 @@ public class ThunderPlayer {
         this.healthPerkPoints = healthPerkPoints;
         this.criticalStrikePerkPoints = criticalStrikePerkPoints;
         this.criticalPowerPerkPoints = criticalPowerPerkPoints;
-        this.lastTpLocation = lastTpLocation;
         this.houses = houses;
         this.logout = logout;
         this.login = login;
@@ -116,6 +113,7 @@ public class ThunderPlayer {
         this.dataWealthGain = dataWealthGain;
         this.dataMoneyDrops = dataMoneyDrops;
         this.context = context;
+        this.lastKnownLocation = lastKnownLocation;
     }
 
     public String getName() {
@@ -342,14 +340,6 @@ public class ThunderPlayer {
         this.criticalPowerPerkPoints = criticalPowerPerkPoints;
     }
 
-    public Location getLastTpLocation() {
-        return lastTpLocation;
-    }
-
-    public void setLastTpLocation(Location lastTpLocation) {
-        this.lastTpLocation = lastTpLocation;
-    }
-
     public String[] getHouses() {
         return houses;
     }
@@ -516,5 +506,13 @@ public class ThunderPlayer {
 
     public void setContext(String[] context) {
         this.context = context;
+    }
+
+    public String[] getLastKnownLocation() {
+        return lastKnownLocation;
+    }
+
+    public void setLastKnownLocation(String[] lastKnownLocation) {
+        this.lastKnownLocation = lastKnownLocation;
     }
 }
