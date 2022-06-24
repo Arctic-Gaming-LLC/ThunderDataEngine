@@ -73,7 +73,7 @@ public class PlayerUtil {
         thunderPlayer.setCriticalStrike(newThunderPlayer.getCriticalStrike());
         thunderPlayer.setCriticalPower(newThunderPlayer.getCriticalPower());
         thunderPlayer.setDateCreated(newThunderPlayer.getDateCreated());
-        thunderPlayer.setUUID(newThunderPlayer.getUUid());
+        thunderPlayer.setUUID(newThunderPlayer.getUUID());
         thunderPlayer.setGuild(newThunderPlayer.getGuild());
         thunderPlayer.setParty(newThunderPlayer.getParty());
         thunderPlayer.setPvpEnabled(newThunderPlayer.isPvpEnabled());
