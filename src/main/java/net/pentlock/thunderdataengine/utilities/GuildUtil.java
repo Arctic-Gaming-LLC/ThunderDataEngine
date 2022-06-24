@@ -12,7 +12,7 @@ import java.util.UUID;
 
 public class GuildUtil {
 
-    public static final Map<UUID, Guild> guilds = new HashMap<>();
+    public static final Map<UUID, Guild> GUILDS = new HashMap<>();
 
     public static Guild createGuild(UUID uuid, double bankBalance, String name, int level, UUID leader, UUID coLeader, UUID[] officers, UUID[] members,
                                     int maxMembers, String messageBoard, int points, int physicalDefensePoints, int archeryDefensePoints, int physicalOffensePoints,
@@ -21,7 +21,7 @@ public class GuildUtil {
         Guild guild = new Guild(uuid, bankBalance, name, level, leader, coLeader, officers, members, maxMembers, messageBoard, points, physicalDefensePoints, archeryDefensePoints,
                 physicalOffensePoints, archeryOffensePoints, healthPoints, criticalStrikePoints, criticalPowerPoints, boostActive, activeBoost, boostTime, refreshTime, refreshActive);
 
-        guilds.put(uuid, guild);
+        GUILDS.put(uuid, guild);
 
         try {
             saveGuild(uuid);
@@ -40,12 +40,12 @@ public class GuildUtil {
     }
 
     public static Guild findGuild(UUID uuid) {
-        return guilds.get(uuid);
+        return GUILDS.get(uuid);
     }
 
     public static Guild updateGuild(UUID uuid, Guild newGuild) {
 
-        Guild guild = guilds.get(uuid);
+        Guild guild = GUILDS.get(uuid);
 
         guild.setBankBalance(newGuild.getBankBalance());
         guild.setName(newGuild.getName());
@@ -89,7 +89,7 @@ public class GuildUtil {
         }
 
         file.createNewFile();
-        Guild guild = guilds.get(uuid);
+        Guild guild = GUILDS.get(uuid);
         if (guild != null) {
             Writer writer = new FileWriter(file, false);
             gson.toJson(guild, writer);
@@ -105,7 +105,7 @@ public class GuildUtil {
         if (file.exists()) {
             Reader reader = new FileReader(file);
             Guild guild = gson.fromJson(reader, Guild.class);
-            guilds.put(uuid, guild);
+            GUILDS.put(uuid, guild);
         }
     }
 
@@ -115,6 +115,6 @@ public class GuildUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        guilds.remove(uuid);
+        GUILDS.remove(uuid);
     }
 }

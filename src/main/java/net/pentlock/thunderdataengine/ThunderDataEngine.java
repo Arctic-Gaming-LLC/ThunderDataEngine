@@ -48,7 +48,7 @@ public final class ThunderDataEngine extends JavaPlugin implements Listener {
                 }
             }
         }
-        Set<UUID> listPlayerUUID = PlayerUtil.thunderPlayers.keySet();
+        Set<UUID> listPlayerUUID = PlayerUtil.THUNDER_PLAYERS.keySet();
         for (UUID playerUUID : listPlayerUUID) {
             try {
                 PlayerUtil.savePlayer(playerUUID);
@@ -56,7 +56,7 @@ public final class ThunderDataEngine extends JavaPlugin implements Listener {
                 e.printStackTrace();
             }
         }
-        Set<UUID> listGuildUUID = GuildUtil.guilds.keySet();
+        Set<UUID> listGuildUUID = GuildUtil.GUILDS.keySet();
         for (UUID guildUUID : listGuildUUID) {
             try {
                 GuildUtil.saveGuild(guildUUID);
@@ -81,7 +81,7 @@ public final class ThunderDataEngine extends JavaPlugin implements Listener {
 
             @Override
             public void run() {
-                Set<UUID> listPlayerUUID = PlayerUtil.thunderPlayers.keySet();
+                Set<UUID> listPlayerUUID = PlayerUtil.THUNDER_PLAYERS.keySet();
                 for (UUID playerUUID : listPlayerUUID) {
                     try {
                         PlayerUtil.savePlayer(playerUUID);
@@ -89,7 +89,7 @@ public final class ThunderDataEngine extends JavaPlugin implements Listener {
                         e.printStackTrace();
                     }
                 }
-                Set<UUID> listGuildUUID = GuildUtil.guilds.keySet();
+                Set<UUID> listGuildUUID = GuildUtil.GUILDS.keySet();
                 for (UUID guildUUID : listGuildUUID) {
                     try {
                         GuildUtil.saveGuild(guildUUID);

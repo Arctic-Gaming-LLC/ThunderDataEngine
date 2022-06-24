@@ -244,11 +244,11 @@ public class ThunderPlayer {
         this.dateCreated = dateCreated;
     }
 
-    public UUID getUuid() {
+    public UUID getUUid() {
         return uuid;
     }
 
-    public void setUuid(UUID uuid) {
+    public void setUUID(UUID uuid) {
         this.uuid = uuid;
     }
 
