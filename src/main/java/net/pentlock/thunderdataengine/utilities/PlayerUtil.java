@@ -24,14 +24,14 @@ public class PlayerUtil {
                                              long logout, long login, boolean godMode, boolean acceptingPay, int playerKills, int mobKills, int deaths, int fallDeaths,
                                              long totalPlayTime, long lastDeathTime, int timesLoggedIn, double moneyFromDrops, long[] dataPlayTime,
                                              double[] dataPvpDamage, double[] dataPvpDefenseDamage, double[] dataPveDamage, double[] dataPveDefenseDamage,
-                                             double[] dataWealthGain, double[] dataMoneyDrops, String[] context, String[] lastKnownLocation) {
+                                             double[] dataWealthGain, double[] dataMoneyDrops, String tag, String[] lastKnownLocation) {
 
         ThunderPlayer thunderPlayer = new ThunderPlayer(name, money, level, exp, grave, graveWorld, maxHealth, currentHealth, luck, physicalDefense, archeryDefense,
                 physicalOffense, archeryOffense, criticalStrike, criticalPower, dateCreated, uuid, guild, party, pvpEnabled, perkPoints,
                 physicalDefensePerkPoints, archeryDefensePerkPoints, physicalOffensePerkPoints, archeryOffensePerkPoints, healthPerkPoints,
                 criticalStrikePerkPoints, criticalPowerPerkPoints, houses, logout, login, godMode, acceptingPay, playerKills,
                 mobKills, deaths, fallDeaths, totalPlayTime, lastDeathTime, timesLoggedIn, moneyFromDrops, dataPlayTime, dataPvpDamage,
-                dataPvpDefenseDamage, dataPveDamage, dataPveDefenseDamage, dataWealthGain, dataMoneyDrops, context, lastKnownLocation);
+                dataPvpDefenseDamage, dataPveDamage, dataPveDefenseDamage, dataWealthGain, dataMoneyDrops, tag, lastKnownLocation);
 
         thunderPlayers.put(uuid, thunderPlayer);
 
@@ -105,7 +105,7 @@ public class PlayerUtil {
         thunderPlayer.setDataPveDefenseDamage(newThunderPlayer.getDataPveDefenseDamage());
         thunderPlayer.setDataWealthGain(newThunderPlayer.getDataWealthGain());
         thunderPlayer.setDataMoneyDrops(newThunderPlayer.getDataMoneyDrops());
-        thunderPlayer.setContext(newThunderPlayer.getContext());
+        thunderPlayer.setTag(newThunderPlayer.getTag());
         thunderPlayer.setLastKnownLocation(newThunderPlayer.getLastKnownLocation());
 
         return thunderPlayer;

@@ -22,9 +22,9 @@ public class PlayerLogoutListener implements Listener {
     public void onPlayerQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
         UUID playerUUID = player.getUniqueId();
-        ThunderPlayer thunderPlayer = PlayerUtil.findPlayer(playerUUID);
-        assert thunderPlayer != null;
-        Guild guild = GuildUtil.findGuild(thunderPlayer.getGuild());
+        ThunderPlayer tcsPlayer = PlayerUtil.findPlayer(playerUUID);
+        assert tcsPlayer != null;
+        Guild guild = GuildUtil.findGuild(tcsPlayer.getGuild());
         boolean onlineGuildMember = false;
         if (guild != null) {
             for (Player playerTarget : Bukkit.getOnlinePlayers()) {
@@ -41,11 +41,11 @@ public class PlayerLogoutListener implements Listener {
 
             }
             if (!onlineGuildMember) {
-                GuildUtil.unLoadGuild(thunderPlayer.getGuild());
+                GuildUtil.unLoadGuild(tcsPlayer.getGuild());
             }
         }
 
-        Party party = PartyUtil.findParty(thunderPlayer.getParty());
+        Party party = PartyUtil.findParty(tcsPlayer.getParty());
         if (party != null) {
             UUID[] members = party.getMembers();
             if (party.getLeader().toString().equalsIgnoreCase(player.getUniqueId().toString())) {
@@ -73,14 +73,14 @@ public class PlayerLogoutListener implements Listener {
                         if (!member.toString().equalsIgnoreCase(playerUUID.toString())) {
                             runMemberRemoval(party, player);
                             party.setLeader(member);
-                            thunderPlayer.setParty(playerUUID);
+                            tcsPlayer.setParty(playerUUID);
                             break;
                         }
                     }
                 }
             } else {
                 runMemberRemoval(party, player);
-                thunderPlayer.setParty(playerUUID);
+                tcsPlayer.setParty(playerUUID);
 
             }
         }

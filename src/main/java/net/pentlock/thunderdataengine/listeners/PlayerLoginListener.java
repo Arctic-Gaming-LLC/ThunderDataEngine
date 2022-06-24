@@ -40,7 +40,7 @@ public class PlayerLoginListener implements Listener {
                     playerUUID, playerUUID, playerUUID, false, 0, 0, 0, 0,
                     0, 0, 0, 0, new String[0], System.currentTimeMillis(),
                     System.currentTimeMillis(), false, true, 0, 0, 0, 0, 0L, System.currentTimeMillis(), 1, 0.0,
-                    new long[0], new double[0], new double[0], new double[0], new double[0], new double[0], new double[0], new String[0], new String[0]);
+                    new long[0], new double[0], new double[0], new double[0], new double[0], new double[0], new double[0], "New", new String[0]);
 
         }
 

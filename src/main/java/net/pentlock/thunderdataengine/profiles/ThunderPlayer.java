@@ -52,7 +52,7 @@ public class ThunderPlayer {
     private double[] dataPveDefenseDamage;
     private double[] dataWealthGain;
     private double[] dataMoneyDrops;
-    private String[] context;
+    private String tag;
     private String[] lastKnownLocation;
 
     public ThunderPlayer(String name, double money, int level, long exp, String grave, String graveWorld, int maxHealth, double currentHealth,
@@ -63,7 +63,7 @@ public class ThunderPlayer {
                          long logout, long login, boolean godMode, boolean acceptingPay, int playerKills, int mobKills, int deaths, int fallDeaths,
                          long totalPlayTime, long lastDeathTime, int timesLoggedIn, double moneyFromDrops, long[] dataPlayTime, double[] dataPvpDamage,
                          double[] dataPvpDefenseDamage, double[] dataPveDamage, double[] dataPveDefenseDamage, double[] dataWealthGain,
-                         double[] dataMoneyDrops, String[] context, String[] lastKnownLocation) {
+                         double[] dataMoneyDrops, String tag, String[] lastKnownLocation) {
         this.name = name;
         this.money = money;
         this.level = level;
@@ -112,7 +112,7 @@ public class ThunderPlayer {
         this.dataPveDefenseDamage = dataPveDefenseDamage;
         this.dataWealthGain = dataWealthGain;
         this.dataMoneyDrops = dataMoneyDrops;
-        this.context = context;
+        this.tag = tag;
         this.lastKnownLocation = lastKnownLocation;
     }
 
@@ -500,12 +500,12 @@ public class ThunderPlayer {
         this.dataMoneyDrops = dataMoneyDrops;
     }
 
-    public String[] getContext() {
-        return context;
+    public String getTag() {
+        return tag;
     }
 
-    public void setContext(String[] context) {
-        this.context = context;
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 
     public String[] getLastKnownLocation() {
