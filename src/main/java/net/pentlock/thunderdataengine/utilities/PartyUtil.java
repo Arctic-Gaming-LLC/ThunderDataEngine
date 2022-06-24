@@ -12,27 +12,27 @@ import java.util.UUID;
 
 public class PartyUtil {
 
-    public static final Map<UUID, Party> parties = new HashMap<>();
+    public static final Map<UUID, Party> PARTIES = new HashMap<>();
 
     public static Party createParty(UUID uuid, String name, UUID leader, UUID[] members) {
         Party party = new Party(uuid, name, leader, members);
-        parties.put(uuid, party);
+        PARTIES.put(uuid, party);
 
         return party;
     }
 
     public static void deleteParty(UUID uuid) {
-        parties.remove(uuid);
+        PARTIES.remove(uuid);
     }
 
     public static Party findParty(UUID uuid) {
-        return parties.get(uuid);
+        return PARTIES.get(uuid);
     }
 
     public static Party updateParty(UUID uuid, Party newParty) {
-        Party party = parties.get(uuid);
+        Party party = PARTIES.get(uuid);
 
-        party.setUuid(newParty.getUuid());
+        party.setUUID(newParty.getUUID());
         party.setName(newParty.getName());
         party.setLeader(newParty.getLeader());
         party.setMembers(newParty.getMembers());
@@ -49,7 +49,7 @@ public class PartyUtil {
         }
 
         file.createNewFile();
-        Party party = parties.get(uuid);
+        Party party = PARTIES.get(uuid);
         if (party != null) {
             Writer writer = new FileWriter(file, false);
             gson.toJson(party, writer);
@@ -65,7 +65,7 @@ public class PartyUtil {
         if (file.exists()) {
             Reader reader = new FileReader(file);
             Party party = gson.fromJson(reader, Party.class);
-            parties.put(uuid, party);
+            PARTIES.put(uuid, party);
         }
     }
 
@@ -75,6 +75,6 @@ public class PartyUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        parties.remove(uuid);
+        PARTIES.remove(uuid);
     }
 }

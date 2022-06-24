@@ -14,7 +14,7 @@ import java.util.UUID;
 public class PlayerUtil {
 
 
-    public static final Map<UUID, ThunderPlayer> thunderPlayers = new HashMap<>();
+    public static final Map<UUID, ThunderPlayer> THUNDER_PLAYERS = new HashMap<>();
 
     public static ThunderPlayer createPlayer(String name, double money, int level, long exp, String grave, String graveWorld, int maxHealth, double currentHealth,
                                              int luck, int physicalDefense, int archeryDefense, int physicalOffense, int archeryOffense, double criticalStrike,
@@ -33,7 +33,7 @@ public class PlayerUtil {
                 mobKills, deaths, fallDeaths, totalPlayTime, lastDeathTime, timesLoggedIn, moneyFromDrops, dataPlayTime, dataPvpDamage,
                 dataPvpDefenseDamage, dataPveDamage, dataPveDefenseDamage, dataWealthGain, dataMoneyDrops, tag, lastKnownLocation);
 
-        thunderPlayers.put(uuid, thunderPlayer);
+        THUNDER_PLAYERS.put(uuid, thunderPlayer);
 
         try {
             savePlayer(uuid);
@@ -52,11 +52,11 @@ public class PlayerUtil {
     }
 
     public static ThunderPlayer findPlayer(UUID uuid) {
-        return thunderPlayers.get(uuid);
+        return THUNDER_PLAYERS.get(uuid);
     }
 
     public static ThunderPlayer updatePlayer(UUID uuid, ThunderPlayer newThunderPlayer) {
-        ThunderPlayer thunderPlayer = thunderPlayers.get(uuid);
+        ThunderPlayer thunderPlayer = THUNDER_PLAYERS.get(uuid);
 
         thunderPlayer.setName(newThunderPlayer.getName());
         thunderPlayer.setMoney(newThunderPlayer.getMoney());
@@ -73,7 +73,7 @@ public class PlayerUtil {
         thunderPlayer.setCriticalStrike(newThunderPlayer.getCriticalStrike());
         thunderPlayer.setCriticalPower(newThunderPlayer.getCriticalPower());
         thunderPlayer.setDateCreated(newThunderPlayer.getDateCreated());
-        thunderPlayer.setUuid(newThunderPlayer.getUuid());
+        thunderPlayer.setUUID(newThunderPlayer.getUUid());
         thunderPlayer.setGuild(newThunderPlayer.getGuild());
         thunderPlayer.setParty(newThunderPlayer.getParty());
         thunderPlayer.setPvpEnabled(newThunderPlayer.isPvpEnabled());
@@ -120,7 +120,7 @@ public class PlayerUtil {
 
         file.createNewFile();
 
-        ThunderPlayer thunderPlayer = thunderPlayers.get(uuid);
+        ThunderPlayer thunderPlayer = THUNDER_PLAYERS.get(uuid);
         if (thunderPlayer != null) {
             Writer writer = new FileWriter(file);
             gson.toJson(thunderPlayer, writer);
@@ -136,7 +136,7 @@ public class PlayerUtil {
         File file = new File(ThunderDataEngine.getPlugin().getDataFolder().getAbsolutePath() + "/PlayerData/" + uuid.toString() + ".json");
         if (file.exists()) {
             ThunderPlayer thunderPlayer = gson.fromJson(new FileReader(file), ThunderPlayer.class);
-            thunderPlayers.put(uuid, thunderPlayer);
+            THUNDER_PLAYERS.put(uuid, thunderPlayer);
         }
     }
 
@@ -146,6 +146,6 @@ public class PlayerUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        thunderPlayers.remove(uuid);
+        THUNDER_PLAYERS.remove(uuid);
     }
 }
