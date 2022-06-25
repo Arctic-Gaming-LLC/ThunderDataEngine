@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.UUID;
 
 public class GuildUtil {
-
+    //TODO add chat color for guilds
     public static final Map<UUID, Guild> GUILDS = new HashMap<>();
 
     public static Guild createGuild(UUID uuid, double bankBalance, String name, int level, UUID leader, UUID coLeader, UUID[] officers, UUID[] members,

@@ -47,6 +47,9 @@ public class PlayerLoginListener implements Listener {
         ThunderPlayer thunderPlayer = PlayerUtil.findPlayer(player.getUniqueId());
 
         assert thunderPlayer != null;
+        thunderPlayer.setParty(player.getUniqueId());
+        PlayerUtil.updatePlayer(thunderPlayer.getUUID(), thunderPlayer);
+
         File fileGuild = new File(ThunderDataEngine.getPlugin().getDataFolder().getAbsolutePath() + "/GuildData/" + thunderPlayer.getGuild() + ".json");
         if (fileGuild.exists()) {
             Guild guild = GuildUtil.findGuild(thunderPlayer.getGuild());
