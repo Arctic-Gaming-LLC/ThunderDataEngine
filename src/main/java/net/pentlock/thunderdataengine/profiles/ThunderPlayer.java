@@ -32,7 +32,7 @@ public class ThunderPlayer {
     private int healthPerkPoints;
     private int criticalStrikePerkPoints;
     private int criticalPowerPerkPoints;
-    private String[] houses;
+    private UUID[] houses;
     private long logout;
     private long login;
     private boolean godMode;
@@ -59,7 +59,7 @@ public class ThunderPlayer {
                          int luck, int physicalDefense, int archeryDefense, int physicalOffense, int archeryOffense, double criticalStrike,
                          double criticalPower, Date dateCreated, UUID uuid, UUID guild, UUID party, boolean pvpEnabled, int perkPoints,
                          int physicalDefensePerkPoints, int archeryDefensePerkPoints, int physicalOffensePerkPoints, int archeryOffensePerkPoints,
-                         int healthPerkPoints, int criticalStrikePerkPoints, int criticalPowerPerkPoints, String[] houses,
+                         int healthPerkPoints, int criticalStrikePerkPoints, int criticalPowerPerkPoints, UUID[] houses,
                          long logout, long login, boolean godMode, boolean acceptingPay, int playerKills, int mobKills, int deaths, int fallDeaths,
                          long totalPlayTime, long lastDeathTime, int timesLoggedIn, double moneyFromDrops, long[] dataPlayTime, double[] dataPvpDamage,
                          double[] dataPvpDefenseDamage, double[] dataPveDamage, double[] dataPveDefenseDamage, double[] dataWealthGain,
@@ -340,11 +340,11 @@ public class ThunderPlayer {
         this.criticalPowerPerkPoints = criticalPowerPerkPoints;
     }
 
-    public String[] getHouses() {
+    public UUID[] getHouses() {
         return houses;
     }
 
-    public void setHouses(String[] houses) {
+    public void setHouses(UUID[] houses) {
         this.houses = houses;
     }
 
