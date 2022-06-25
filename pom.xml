@@ -6,7 +6,7 @@
 
     <groupId>net.pentlock</groupId>
     <artifactId>ThunderDataEngine</artifactId>
-    <version>0.1.19</version>
+    <version>0.1.20</version>
     <packaging>jar</packaging>
 
     <name>ThunderDataEngine</name>
@@ -25,7 +25,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <release>17</release>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
             <plugin>
