@@ -37,6 +37,7 @@ public class GuildUtil {
         if (file.exists()) {
             file.delete();
         }
+        GUILDS.remove(uuid);
     }
 
     public static Guild findGuild(UUID uuid) {
