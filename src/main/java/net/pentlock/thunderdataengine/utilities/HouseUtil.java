@@ -28,7 +28,7 @@ public class HouseUtil {
     public static House createHouse(String name, double cost, String[] doorLocation, String[] arrivalLocation,
                                     Map<UUID, String[]> instances, Map<UUID, String[]> instanceLocation) {
 
-        House house = new House(name.toLowerCase(), cost, doorLocation, arrivalLocation, instances, instanceLocation);
+        House house = new House(name, cost, doorLocation, arrivalLocation, instances, instanceLocation);
 
         HOUSES.put(name, house);
 
