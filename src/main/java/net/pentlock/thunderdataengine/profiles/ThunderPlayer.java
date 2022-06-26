@@ -35,7 +35,7 @@ public class ThunderPlayer {
     @Setter @Getter private int healthPerkPoints;
     @Setter @Getter private int criticalStrikePerkPoints;
     @Setter @Getter private int criticalPowerPerkPoints;
-    @Setter @Getter private UUID[] houses;
+    @Setter @Getter private String[] houses;
     @Setter @Getter private long logout;
     @Setter @Getter private long login;
     @Setter @Getter private boolean godMode;
@@ -120,7 +120,7 @@ public class ThunderPlayer {
                          int luck, int physicalDefense, int archeryDefense, int physicalOffense, int archeryOffense, double criticalStrike,
                          double criticalPower, Date dateCreated, UUID uuid, UUID guild, UUID party, boolean pvpEnabled, int perkPoints,
                          int physicalDefensePerkPoints, int archeryDefensePerkPoints, int physicalOffensePerkPoints, int archeryOffensePerkPoints,
-                         int healthPerkPoints, int criticalStrikePerkPoints, int criticalPowerPerkPoints, UUID[] houses,
+                         int healthPerkPoints, int criticalStrikePerkPoints, int criticalPowerPerkPoints, String[] houses,
                          long logout, long login, boolean godMode, boolean acceptingPay, int playerKills, int mobKills, int deaths, int fallDeaths,
                          long totalPlayTime, long lastDeathTime, int timesLoggedIn, double moneyFromDrops, long[] dataPlayTime, double[] dataPvpDamage,
                          double[] dataPvpDefenseDamage, double[] dataPveDamage, double[] dataPveDefenseDamage, double[] dataWealthGain,
