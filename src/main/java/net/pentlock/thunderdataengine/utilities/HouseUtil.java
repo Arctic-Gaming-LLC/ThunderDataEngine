@@ -33,6 +33,12 @@ public class HouseUtil {
 
         HOUSES.put(uuid, house);
 
+        try {
+            saveHouse(uuid);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         return house;
     }
 
