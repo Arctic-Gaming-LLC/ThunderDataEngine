@@ -149,3 +149,4 @@ public class PlayerUtil {
         THUNDER_PLAYERS.remove(uuid);
     }
 }
+
