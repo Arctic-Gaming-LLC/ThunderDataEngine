@@ -8,8 +8,6 @@ import java.util.UUID;
 
 public class House {
     @Setter @Getter
-    private UUID UUID; // UUID of house group
-    @Setter @Getter
     private String name; // name of house
     @Setter @Getter
     private double cost;
@@ -26,7 +24,6 @@ public class House {
      * <h3>House Objects</h3>
      * This is the constructor for a House type - not an individual house
      *
-     * @param uuid the Unique ID for the housing instance
      * @param name the Name of the House
      * @param cost How much the house costs to purchase
      * @param doorLocation The exact location of the door
@@ -34,8 +31,7 @@ public class House {
      * @param instances Stores the locations and UUIDs of all instances of this house type
      * @param instanceLocation Stores a map of player UUIDs and House Locations
      */
-    public House(UUID uuid, String name, double cost, String[] doorLocation, String[] arrivalLocation, Map<UUID, String[]> instances, Map<UUID, String[]> instanceLocation) {
-        this.UUID = uuid;
+    public House(String name, double cost, String[] doorLocation, String[] arrivalLocation, Map<UUID, String[]> instances, Map<UUID, String[]> instanceLocation) {
         this.name = name;
         this.cost = cost;
         this.doorLocation = doorLocation;

@@ -12,11 +12,10 @@ import java.util.UUID;
 
 public class HouseUtil {
 
-    public static final Map<UUID, House> HOUSES = new HashMap<>();
+    public static final Map<String, House> HOUSES = new HashMap<>();
 
     /**
      *
-     * @param uuid UUID of house
      * @param name Name of house
      * @param cost cost of house
      * @param doorLocation exact location of door to be clicked
@@ -26,15 +25,15 @@ public class HouseUtil {
      * @return this is the house object after it has been created
      */
 
-    public static House createHouse(UUID uuid, String name, double cost, String[] doorLocation, String[] arrivalLocation,
+    public static House createHouse(String name, double cost, String[] doorLocation, String[] arrivalLocation,
                                     Map<UUID, String[]> instances, Map<UUID, String[]> instanceLocation) {
 
-        House house = new House(uuid, name, cost, doorLocation, arrivalLocation, instances, instanceLocation);
+        House house = new House(name.toLowerCase(), cost, doorLocation, arrivalLocation, instances, instanceLocation);
 
-        HOUSES.put(uuid, house);
+        HOUSES.put(name, house);
 
         try {
-            saveHouse(uuid);
+            saveHouse(name);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -44,11 +43,11 @@ public class HouseUtil {
 
     /**
      *
-     * @param uuid UUID of house
+     * @param name Name of house
      */
-    public static void deleteHouse(UUID uuid) {
-        HOUSES.remove(uuid);
-        File file = new File(ThunderDataEngine.getPlugin().getDataFolder().getAbsolutePath() + "/HouseData/" + uuid + ".json");
+    public static void deleteHouse(String name) {
+        HOUSES.remove(name);
+        File file = new File(ThunderDataEngine.getPlugin().getDataFolder().getAbsolutePath() + "/HouseData/" + name + ".json");
         if (file.exists()) {
             file.delete();
         }
@@ -56,23 +55,22 @@ public class HouseUtil {
 
     /**
      *
-     * @param uuid UUID of house
+     * @param name Name of house
      * @return the house object to be found
      */
-    public static House findHouse(UUID uuid) {
-        return HOUSES.get(uuid);
+    public static House findHouse(String name) {
+        return HOUSES.get(name);
     }
 
     /**
      *
-     * @param uuid UUID of house
+     * @param name Name of house
      * @param newHouse House object to pass in
      * @return the house the has been updated
      */
-    public static House updateHouse(UUID uuid, House newHouse) {
-        House house = HOUSES.get(uuid);
+    public static House updateHouse(String name, House newHouse) {
+        House house = HOUSES.get(name);
 
-        house.setUUID(newHouse.getUUID());
         house.setName(newHouse.getName());
         house.setCost(newHouse.getCost());
         house.setDoorLocation(newHouse.getDoorLocation());
@@ -85,19 +83,19 @@ public class HouseUtil {
 
     /**
      *
-     * @param uuid UUID of house
+     * @param name Name of house
      * @throws IOException an exception?
      */
-    public static void saveHouse(UUID uuid) throws IOException {
+    public static void saveHouse(String name) throws IOException {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        File file = new File(ThunderDataEngine.getPlugin().getDataFolder().getAbsolutePath() + "/HouseData/" + uuid + ".json");
+        File file = new File(ThunderDataEngine.getPlugin().getDataFolder().getAbsolutePath() + "/HouseData/" + name + ".json");
         if (!file.exists()) {
             file.getParentFile().mkdir();
         }
 
         file.createNewFile();
-        House house = HOUSES.get(uuid);
+        House house = HOUSES.get(name);
         if (house != null) {
             Writer writer = new FileWriter(file, false);
             gson.toJson(house, writer);
@@ -108,31 +106,31 @@ public class HouseUtil {
 
     /**
      *
-     * @param uuid UUID of house
+     * @param name Name of house
      * @throws FileNotFoundException an exception?
      */
-    public static void loadHouse(UUID uuid) throws FileNotFoundException {
+    public static void loadHouse(String name) throws FileNotFoundException {
         Gson gson = new Gson();
-        File file = new File(ThunderDataEngine.getPlugin().getDataFolder().getAbsolutePath() + "/HouseData/" + uuid + ".json");
+        File file = new File(ThunderDataEngine.getPlugin().getDataFolder().getAbsolutePath() + "/HouseData/" + name + ".json");
 
         if (file.exists()) {
             Reader reader = new FileReader(file);
             House house = gson.fromJson(reader, House.class);
-            HOUSES.put(uuid, house);
+            HOUSES.put(name, house);
         }
     }
 
     /**
      *
-     * @param uuid
+     * @param name Name of house
      */
-    public static void unLoadHouse(UUID uuid) {
+    public static void unLoadHouse(String name) {
         try {
-            saveHouse(uuid);
+            saveHouse(name);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        HOUSES.remove(uuid);
+        HOUSES.remove(name);
     }
 }
 
