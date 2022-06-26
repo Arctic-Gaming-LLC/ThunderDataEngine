@@ -85,6 +85,32 @@ public class ArrayUtil {
     /**
      * <h3>Array Util</h3>
      * A handy tool to update arrays!
+     * UUID Edition
+     *
+     * @param oldArray The current array that is being updated
+     * @param value The values that an array is adding to
+     * @return Array of object type
+     */
+    public static UUID[] addToArray(UUID[] oldArray, UUID value) {
+
+        UUID[] newArray = new UUID[oldArray.length + 1];
+
+        for (int i = 0; i < oldArray.length + 1;) {
+
+            if (i < oldArray.length) {
+                newArray[i] = oldArray[i];
+            } else {
+                newArray[i] = value;
+            }
+            i++;
+        }
+
+        return newArray;
+    }
+
+    /**
+     * <h3>Array Util</h3>
+     * A handy tool to update arrays!
      * Less-Long Edition!
      *
      * @param oldArray The current array that is being updated
@@ -175,32 +201,6 @@ public class ArrayUtil {
             if (oldArray[i] == value) {
                 newArray[y] = oldArray[i];
 
-            }
-            i++;
-        }
-
-        return newArray;
-    }
-
-    /**
-     * <h3>Array Util</h3>
-     * A handy tool to update arrays!
-     * UUID Edition
-     *
-     * @param oldArray The current array that is being updated
-     * @param value The values that an array is adding to
-     * @return Array of object type
-     */
-    public static UUID[] addToArray(UUID[] oldArray, UUID value) {
-
-        UUID[] newArray = new UUID[oldArray.length + 1];
-
-        for (int i = 0; i < oldArray.length + 1;) {
-
-            if (i < oldArray.length) {
-                newArray[i] = oldArray[i];
-            } else {
-                newArray[i] = value;
             }
             i++;
         }
