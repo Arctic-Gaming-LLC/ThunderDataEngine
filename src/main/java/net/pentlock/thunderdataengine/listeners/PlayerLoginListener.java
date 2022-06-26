@@ -24,6 +24,7 @@ public class PlayerLoginListener implements Listener {
     @EventHandler
     public void onPlayerLoginEvent(PlayerLoginEvent event) {
 
+        //on player login - see if player data exists and load it - otherwise, create a new player
         Player player = event.getPlayer();
         File file = new File(ThunderDataEngine.getPlugin().getDataFolder().getAbsolutePath() + "/PlayerData/" + player.getUniqueId() + ".json");
         if (file.exists()) {
@@ -40,16 +41,18 @@ public class PlayerLoginListener implements Listener {
                     playerUUID, playerUUID, playerUUID, false, 0, 0, 0, 0,
                     0, 0, 0, 0, new UUID[0], System.currentTimeMillis(),
                     System.currentTimeMillis(), false, true, 0, 0, 0, 0, 0L, System.currentTimeMillis(), 1, 0.0,
-                    new long[0], new double[0], new double[0], new double[0], new double[0], new double[0], new double[0], "New", new String[0]);
+                    new long[0], new double[0], new double[0], new double[0], new double[0], new double[0], new double[0], "New", new String[0], new double[0]);
 
         }
 
         ThunderPlayer thunderPlayer = PlayerUtil.findPlayer(player.getUniqueId());
 
+        // Clears a player's party on login - ensures that parties are not stored locally
         assert thunderPlayer != null;
         thunderPlayer.setParty(player.getUniqueId());
         PlayerUtil.updatePlayer(thunderPlayer.getUUID(), thunderPlayer);
 
+        // Checks to see if the player's guild exists by searching for its file
         File fileGuild = new File(ThunderDataEngine.getPlugin().getDataFolder().getAbsolutePath() + "/GuildData/" + thunderPlayer.getGuild() + ".json");
         if (fileGuild.exists()) {
             Guild guild = GuildUtil.findGuild(thunderPlayer.getGuild());

@@ -24,6 +24,8 @@ public class PlayerLogoutListener implements Listener {
         UUID playerUUID = player.getUniqueId();
         ThunderPlayer tcsPlayer = PlayerUtil.findPlayer(playerUUID);
         assert tcsPlayer != null;
+
+        //Updates the list of online Guild Members - important for Chat System
         Guild guild = GuildUtil.findGuild(tcsPlayer.getGuild());
         boolean onlineGuildMember = false;
         if (guild != null) {
@@ -45,6 +47,7 @@ public class PlayerLogoutListener implements Listener {
             }
         }
 
+        //Updates Player Party information
         Party party = PartyUtil.findParty(tcsPlayer.getParty());
         if (party != null) {
             UUID[] members = party.getMembers();
