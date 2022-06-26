@@ -48,9 +48,10 @@ public class PlayerLoginListener implements Listener {
         ThunderPlayer thunderPlayer = PlayerUtil.findPlayer(player.getUniqueId());
 
         // Clears a player's party on login - ensures that parties are not stored locally
-        assert thunderPlayer != null;
+
         thunderPlayer.setParty(player.getUniqueId());
         PlayerUtil.updatePlayer(thunderPlayer.getUUID(), thunderPlayer);
+
 
         // Checks to see if the player's guild exists by searching for its file
         File fileGuild = new File(ThunderDataEngine.getPlugin().getDataFolder().getAbsolutePath() + "/GuildData/" + thunderPlayer.getGuild() + ".json");
@@ -64,5 +65,7 @@ public class PlayerLoginListener implements Listener {
                 }
             }
         }
+
+
     }
 }

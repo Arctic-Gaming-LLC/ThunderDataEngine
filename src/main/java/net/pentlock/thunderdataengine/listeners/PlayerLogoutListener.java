@@ -22,11 +22,11 @@ public class PlayerLogoutListener implements Listener {
     public void onPlayerQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
         UUID playerUUID = player.getUniqueId();
-        ThunderPlayer tcsPlayer = PlayerUtil.findPlayer(playerUUID);
-        assert tcsPlayer != null;
+        ThunderPlayer thunderPlayer = PlayerUtil.findPlayer(playerUUID);
+        assert thunderPlayer != null;
 
         //Updates the list of online Guild Members - important for Chat System
-        Guild guild = GuildUtil.findGuild(tcsPlayer.getGuild());
+        Guild guild = GuildUtil.findGuild(thunderPlayer.getGuild());
         boolean onlineGuildMember = false;
         if (guild != null) {
             for (Player playerTarget : Bukkit.getOnlinePlayers()) {
@@ -43,12 +43,12 @@ public class PlayerLogoutListener implements Listener {
 
             }
             if (!onlineGuildMember) {
-                GuildUtil.unLoadGuild(tcsPlayer.getGuild());
+                GuildUtil.unLoadGuild(thunderPlayer.getGuild());
             }
         }
 
         //Updates Player Party information
-        Party party = PartyUtil.findParty(tcsPlayer.getParty());
+        Party party = PartyUtil.findParty(thunderPlayer.getParty());
         if (party != null) {
             UUID[] members = party.getMembers();
             if (party.getLeader().toString().equalsIgnoreCase(player.getUniqueId().toString())) {
@@ -76,14 +76,14 @@ public class PlayerLogoutListener implements Listener {
                         if (!member.toString().equalsIgnoreCase(playerUUID.toString())) {
                             runMemberRemoval(party, player);
                             party.setLeader(member);
-                            tcsPlayer.setParty(playerUUID);
+                            thunderPlayer.setParty(playerUUID);
                             break;
                         }
                     }
                 }
             } else {
                 runMemberRemoval(party, player);
-                tcsPlayer.setParty(playerUUID);
+                thunderPlayer.setParty(playerUUID);
 
             }
         }
