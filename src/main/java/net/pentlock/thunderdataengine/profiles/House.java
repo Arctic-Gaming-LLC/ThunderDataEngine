@@ -12,6 +12,10 @@ public class House {
     @Setter @Getter
     private double cost;
     @Setter @Getter
+    private double unitsAvailable;
+    @Setter @Getter
+    private double unitsIssued;
+    @Setter @Getter
     private String[] doorLocation; // exact location of door
     @Setter @Getter
     private String[] arrivalLocation; // this is location outside the door
@@ -31,7 +35,7 @@ public class House {
      * @param instances Stores the locations and UUIDs of all instances of this house type
      * @param instanceLocation Stores a map of player UUIDs and House Locations
      */
-    public House(String name, double cost, String[] doorLocation, String[] arrivalLocation, Map<UUID, String[]> instances, Map<UUID, String[]> instanceLocation) {
+    public House(String name, double cost, double unitsAvailable,double unitsIssued, String[] doorLocation, String[] arrivalLocation, Map<UUID, String[]> instances, Map<UUID, String[]> instanceLocation) {
         this.name = name;
         this.cost = cost;
         this.doorLocation = doorLocation;

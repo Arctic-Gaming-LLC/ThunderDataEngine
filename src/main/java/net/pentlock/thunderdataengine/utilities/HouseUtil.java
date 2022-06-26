@@ -18,6 +18,8 @@ public class HouseUtil {
      *
      * @param name Name of house
      * @param cost cost of house
+     * @param unitsAvailable the units made but not yet assigned
+     * @param unitsIssued the unit number of units that have been issued
      * @param doorLocation exact location of door to be clicked
      * @param arrivalLocation the location player should be when leaving home
      * @param instances Map of UUID to String[] to hold locations of available houses
@@ -25,10 +27,10 @@ public class HouseUtil {
      * @return this is the house object after it has been created
      */
 
-    public static House createHouse(String name, double cost, String[] doorLocation, String[] arrivalLocation,
+    public static House createHouse(String name, double cost, double unitsAvailable, double unitsIssued, String[] doorLocation, String[] arrivalLocation,
                                     Map<UUID, String[]> instances, Map<UUID, String[]> instanceLocation) {
 
-        House house = new House(name, cost, doorLocation, arrivalLocation, instances, instanceLocation);
+        House house = new House(name, cost,unitsAvailable, unitsIssued, doorLocation, arrivalLocation, instances, instanceLocation);
 
         HOUSES.put(name, house);
 
@@ -73,6 +75,8 @@ public class HouseUtil {
 
         house.setName(newHouse.getName());
         house.setCost(newHouse.getCost());
+        house.setUnitsAvailable(newHouse.getUnitsAvailable());
+        house.setUnitsIssued(newHouse.getUnitsIssued());
         house.setDoorLocation(newHouse.getDoorLocation());
         house.setArrivalLocation(newHouse.getArrivalLocation());
         house.setInstances(newHouse.getInstances());
