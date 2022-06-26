@@ -75,7 +75,7 @@ public class HouseUtil {
 
         house.setName(newHouse.getName());
         house.setCost(newHouse.getCost());
-        house.setUnitsAvailable(newHouse.getUnitsAvailable());
+        house.setTotalUnits(newHouse.getTotalUnits());
         house.setUnitsIssued(newHouse.getUnitsIssued());
         house.setDoorLocation(newHouse.getDoorLocation());
         house.setArrivalLocation(newHouse.getArrivalLocation());

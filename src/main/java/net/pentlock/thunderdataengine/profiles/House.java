@@ -12,7 +12,7 @@ public class House {
     @Setter @Getter
     private double cost;
     @Setter @Getter
-    private int unitsAvailable;
+    private int totalUnits;
     @Setter @Getter
     private int unitsIssued;
     @Setter @Getter
@@ -40,7 +40,7 @@ public class House {
     public House(String name, double cost, int totalUnits, int unitsIssued, String[] doorLocation, String[] arrivalLocation, Map<UUID, String[]> instances, Map<UUID, String[]> instanceLocation) {
         this.name = name;
         this.cost = cost;
-        this.unitsAvailable = totalUnits;
+        this.totalUnits = totalUnits;
         this.unitsIssued = unitsIssued;
         this.doorLocation = doorLocation;
         this.arrivalLocation = arrivalLocation;
