@@ -65,9 +65,9 @@ public class ArrayUtil {
      * @param value The values that an array is adding to
      * @return Array of object type
      */
-    public static Double[] addToArray(Double[] oldArray, double value) {
+    public static double[] addToArray(double[] oldArray, double value) {
 
-        Double[] newArray = new Double[oldArray.length + 1];
+        double[] newArray = new double[oldArray.length + 1];
 
         for (int i = 0; i < oldArray.length + 1;) {
 
@@ -142,9 +142,9 @@ public class ArrayUtil {
      * @param value The values that an array is removing from
      * @return Array of object type
      */
-    public static Double[] removeFromArray(Double[] oldArray, double value) {
+    public static double[] removeFromArray(double[] oldArray, double value) {
 
-        Double[] newArray = new Double[oldArray.length - 1];
+        double[] newArray = new double[oldArray.length - 1];
         int y = 0;
         for (int i = 0; i < oldArray.length - 1;) {
 
