@@ -1,32 +1,86 @@
 package net.pentlock.thunderdataengine.profiles;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.UUID;
 
 public class Guild {
+    @Setter @Getter
     private UUID uuid;
+    @Setter @Getter
     private double bankBalance;
+    @Setter @Getter
     private String name;
+    @Setter @Getter
     private int level;
+    @Setter @Getter
     private UUID leader;
+    @Setter @Getter
     private UUID coLeader;
+    @Setter @Getter
     private UUID[] officers;
+    @Setter @Getter
     private UUID[] members;
+    @Setter @Getter
     private int maxMembers;
+    @Setter @Getter
     private String messageBoard;
+    @Setter @Getter
     private int points;
+    @Setter @Getter
     private int physicalDefensePoints;
+    @Setter @Getter
     private int archeryDefensePoints;
+    @Setter @Getter
     private int physicalOffensePoints;
+    @Setter @Getter
     private int archeryOffensePoints;
+    @Setter @Getter
     private int healthPoints;
+    @Setter @Getter
     private int criticalStrikePoints;
+    @Setter @Getter
     private int criticalPowerPoints;
+    @Setter @Getter
     private boolean boostActive;
+    @Setter @Getter
     private String boostType;
+    @Setter @Getter
     private long boostTime;
+    @Setter @Getter
     private long refreshTime;
+    @Setter @Getter
     private boolean refreshActive;
 
+    /**
+     * <h3>Guild Object</h3>
+     * <p>All data objects used to create a guild</p>
+     *
+     * @param uuid Guild's Unique ID
+     * @param bankBalance Guild's Economy Balance
+     * @param name Name of Guild
+     * @param level Guild's overall level
+     * @param leader Guild's Leader
+     * @param coLeader Guild's CoLeader
+     * @param officers Guild's Officers
+     * @param members Guild's Members
+     * @param maxMembers Maximum Number of Player a guild can have
+     * @param messageBoard Message sent to Guild Members on Login
+     * @param points Points available to use on upgrades
+     * @param physicalDefensePoints Total number of points in category
+     * @param archeryDefensePoints Total number of points in category
+     * @param physicalOffensePoints Total number of points in category
+     * @param archeryOffensePoints Total number of points in category
+     * @param healthPoints Total number of points in category
+     * @param criticalStrikePoints Total number of points in category
+     * @param criticalPowerPoints Total number of points in category
+     * @param boostActive Is Boost Active
+     * @param boostType Type of Boost Active
+     * @param boostTime How long a boost has left to run
+     * @param refreshTime Config value for Boost Cooldown
+     * @param refreshActive Checks if there is a refresh time applied to a boost
+     */
     public Guild(UUID uuid, double bankBalance, String name, int level, UUID leader, UUID coLeader, UUID[] officers, UUID[] members,
                  int maxMembers, String messageBoard, int points, int physicalDefensePoints, int archeryDefensePoints, int physicalOffensePoints,
                  int archeryOffensePoints, int healthPoints, int criticalStrikePoints, int criticalPowerPoints, boolean boostActive, String boostType,
@@ -53,190 +107,6 @@ public class Guild {
         this.boostType = boostType;
         this.boostTime = boostTime;
         this.refreshTime = refreshTime;
-        this.refreshActive = refreshActive;
-    }
-
-    public UUID getUUID() {
-        return uuid;
-    }
-
-    public void setUUID(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public double getBankBalance() {
-        return bankBalance;
-    }
-
-    public void setBankBalance(double bankBalance) {
-        this.bankBalance = bankBalance;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    public UUID getLeader() {
-        return leader;
-    }
-
-    public void setLeader(UUID leader) {
-        this.leader = leader;
-    }
-
-    public UUID getCoLeader() {
-        return coLeader;
-    }
-
-    public void setCoLeader(UUID coLeader) {
-        this.coLeader = coLeader;
-    }
-
-    public UUID[] getOfficers() {
-        return officers;
-    }
-
-    public void setOfficers(UUID[] officers) {
-        this.officers = officers;
-    }
-
-    public UUID[] getMembers() {
-        return members;
-    }
-
-    public void setMembers(UUID[] members) {
-        this.members = members;
-    }
-
-    public int getMaxMembers() {
-        return maxMembers;
-    }
-
-    public void setMaxMembers(int maxMembers) {
-        this.maxMembers = maxMembers;
-    }
-
-    public String getMessageBoard() {
-        return messageBoard;
-    }
-
-    public void setMessageBoard(String messageBoard) {
-        this.messageBoard = messageBoard;
-    }
-
-    public int getPoints() {
-        return points;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
-    }
-
-    public int getPhysicalDefensePoints() {
-        return physicalDefensePoints;
-    }
-
-    public void setPhysicalDefensePoints(int physicalDefensePoints) {
-        this.physicalDefensePoints = physicalDefensePoints;
-    }
-
-    public int getArcheryDefensePoints() {
-        return archeryDefensePoints;
-    }
-
-    public void setArcheryDefensePoints(int archeryDefensePoints) {
-        this.archeryDefensePoints = archeryDefensePoints;
-    }
-
-    public int getPhysicalOffensePoints() {
-        return physicalOffensePoints;
-    }
-
-    public void setPhysicalOffensePoints(int physicalOffensePoints) {
-        this.physicalOffensePoints = physicalOffensePoints;
-    }
-
-    public int getArcheryOffensePoints() {
-        return archeryOffensePoints;
-    }
-
-    public void setArcheryOffensePoints(int archeryOffensePoints) {
-        this.archeryOffensePoints = archeryOffensePoints;
-    }
-
-    public int getHealthPoints() {
-        return healthPoints;
-    }
-
-    public void setHealthPoints(int healthPoints) {
-        this.healthPoints = healthPoints;
-    }
-
-    public int getCriticalStrikePoints() {
-        return criticalStrikePoints;
-    }
-
-    public void setCriticalStrikePoints(int criticalStrikePoints) {
-        this.criticalStrikePoints = criticalStrikePoints;
-    }
-
-    public int getCriticalPowerPoints() {
-        return criticalPowerPoints;
-    }
-
-    public void setCriticalPowerPoints(int criticalPowerPoints) {
-        this.criticalPowerPoints = criticalPowerPoints;
-    }
-
-    public boolean isBoostActive() {
-        return boostActive;
-    }
-
-    public void setBoostActive(boolean boostActive) {
-        this.boostActive = boostActive;
-    }
-
-    public String getBoostType() {
-        return boostType;
-    }
-
-    public void setBoostType(String boostType) {
-        this.boostType = boostType;
-    }
-
-    public long getBoostTime() {
-        return boostTime;
-    }
-
-    public void setBoostTime(long boostTime) {
-        this.boostTime = boostTime;
-    }
-
-    public long getRefreshTime() {
-        return refreshTime;
-    }
-
-    public void setRefreshTime(long refreshTime) {
-        this.refreshTime = refreshTime;
-    }
-
-    public boolean isRefreshActive() {
-        return refreshActive;
-    }
-
-    public void setRefreshActive(boolean refreshActive) {
         this.refreshActive = refreshActive;
     }
 }

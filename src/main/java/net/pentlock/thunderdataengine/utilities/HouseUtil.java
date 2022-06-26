@@ -122,6 +122,10 @@ public class HouseUtil {
         }
     }
 
+    /**
+     *
+     * @param uuid
+     */
     public static void unLoadHouse(UUID uuid) {
         try {
             saveHouse(uuid);

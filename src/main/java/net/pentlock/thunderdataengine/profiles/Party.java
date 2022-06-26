@@ -1,49 +1,33 @@
 package net.pentlock.thunderdataengine.profiles;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.UUID;
 
 public class Party {
-    private UUID uuid;
+    @Setter @Getter
+    private UUID UUID;
+    @Setter @Getter
     private String name;
+    @Setter @Getter
     private UUID leader;
+    @Setter @Getter
     private UUID[] members;
 
+    /**
+     * <h3>Party Object</h3>
+     * Constructor for Party objects - instances are NOT saved to file
+     *
+     * @param uuid party's unique ID
+     * @param name name of the party - not required, but nice
+     * @param leader the current leader of a party
+     * @param members an array of members stored as UUIDs
+     */
     public Party(UUID uuid, String name, UUID leader, UUID[] members) {
-        this.uuid = uuid;
+        this.UUID = uuid;
         this.name = name;
         this.leader = leader;
-        this.members = members;
-    }
-
-    public UUID getUUID() {
-        return uuid;
-    }
-
-    public void setUUID(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public UUID getLeader() {
-        return leader;
-    }
-
-    public void setLeader(UUID leader) {
-        this.leader = leader;
-    }
-
-    public UUID[] getMembers() {
-        return members;
-    }
-
-    public void setMembers(UUID[] members) {
         this.members = members;
     }
 }

@@ -1,60 +1,121 @@
 package net.pentlock.thunderdataengine.profiles;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Date;
 import java.util.UUID;
 
 public class ThunderPlayer {
-    private String name;
-    private double money;
-    private int level;
-    private long exp;
-    private String grave;
-    private String graveWorld;
-    private int maxHealth;
-    private double currentHealth;
-    private int luck;
-    private int physicalDefense;
-    private int archeryDefense;
-    private int physicalOffense;
-    private int archeryOffense;
-    private double criticalStrike;
-    private double criticalPower;
-    private Date dateCreated;
-    private UUID uuid;
-    private UUID guild;
-    private UUID party;
-    private boolean pvpEnabled;
-    private int perkPoints;
-    private int physicalDefensePerkPoints;
-    private int archeryDefensePerkPoints;
-    private int physicalOffensePerkPoints;
-    private int archeryOffensePerkPoints;
-    private int healthPerkPoints;
-    private int criticalStrikePerkPoints;
-    private int criticalPowerPerkPoints;
-    private UUID[] houses;
-    private long logout;
-    private long login;
-    private boolean godMode;
-    private boolean acceptingPay;
-    private int playerKills;
-    private int mobKills;
-    private int deaths;
-    private int fallDeaths;
-    private long totalPlayTime;
-    private long lastDeathTime;
-    private int timesLoggedIn;
-    private double moneyFromDrops;
-    private long[] dataPlayTime;
-    private double[] dataPvpDamage;
-    private double[] dataPvpDefenseDamage;
-    private double[] dataPveDamage;
-    private double[] dataPveDefenseDamage;
-    private double[] dataWealthGain;
-    private double[] dataMoneyDrops;
-    private String tag;
-    private String[] lastKnownLocation;
+    @Setter @Getter private String name;
+    @Setter @Getter private double money;
+    @Setter @Getter private int level;
+    @Setter @Getter private long exp;
+    @Setter @Getter private String grave;
+    @Setter @Getter private String graveWorld;
+    @Setter @Getter private int maxHealth;
+    @Setter @Getter private double currentHealth;
+    @Setter @Getter private int luck;
+    @Setter @Getter private int physicalDefense;
+    @Setter @Getter private int archeryDefense;
+    @Setter @Getter private int physicalOffense;
+    @Setter @Getter private int archeryOffense;
+    @Setter @Getter private double criticalStrike;
+    @Setter @Getter private double criticalPower;
+    @Setter @Getter private Date dateCreated;
+    @Setter @Getter private UUID UUID;
+    @Setter @Getter private UUID guild;
+    @Setter @Getter private UUID party;
+    @Setter @Getter private boolean pvpEnabled;
+    @Setter @Getter private int perkPoints;
+    @Setter @Getter private int physicalDefensePerkPoints;
+    @Setter @Getter private int archeryDefensePerkPoints;
+    @Setter @Getter private int physicalOffensePerkPoints;
+    @Setter @Getter private int archeryOffensePerkPoints;
+    @Setter @Getter private int healthPerkPoints;
+    @Setter @Getter private int criticalStrikePerkPoints;
+    @Setter @Getter private int criticalPowerPerkPoints;
+    @Setter @Getter private UUID[] houses;
+    @Setter @Getter private long logout;
+    @Setter @Getter private long login;
+    @Setter @Getter private boolean godMode;
+    @Setter @Getter private boolean acceptingPay;
+    @Setter @Getter private int playerKills;
+    @Setter @Getter private int mobKills;
+    @Setter @Getter private int deaths;
+    @Setter @Getter private int fallDeaths;
+    @Setter @Getter private long totalPlayTime;
+    @Setter @Getter private long lastDeathTime;
+    @Setter @Getter private int timesLoggedIn;
+    @Setter @Getter private double moneyFromDrops;
+    @Setter @Getter private long[] dataPlayTime;
+    @Setter @Getter private double[] dataPvpDamage;
+    @Setter @Getter private double[] dataPvpDefenseDamage;
+    @Setter @Getter private double[] dataPveDamage;
+    @Setter @Getter private double[] dataPveDefenseDamage;
+    @Setter @Getter private double[] dataWealthGain;
+    @Setter @Getter private double[] dataMoneyDrops;
+    @Setter @Getter private String tag;
+    @Setter @Getter private String[] lastKnownLocation;
+    @Setter @Getter private double[] dataWealth;
 
+    /**
+     * <h3>Thunder Player Object</h3>
+     * Constructor for a Thunder Player, synonymous with Player
+     *
+     *
+     * @param name Players name
+     * @param money Players Money Balance
+     * @param level Player's Thunder Combat System Level
+     * @param exp Player's current experience
+     * @param grave Name of the player's preferred grave
+     * @param graveWorld World that the grave exists in
+     * @param maxHealth Player's Maximum Health Value
+     * @param currentHealth Player's Current Health Value
+     * @param luck Player's Luck Value, positive or negative
+     * @param physicalDefense Player's Defense against Physical attacks
+     * @param archeryDefense Player's Defense against Ranged attacks
+     * @param physicalOffense Player's Physical Damage to others
+     * @param archeryOffense Player's Ranged Damage to others
+     * @param criticalStrike Player's chance of making a critical strike
+     * @param criticalPower Current Critical Power
+     * @param dateCreated Date the player first logged in or File was created
+     * @param uuid Player's UUID
+     * @param guild Player's Guild UUID
+     * @param party Player's Party UUID, not saved locally
+     * @param pvpEnabled Can player PvP with others?
+     * @param perkPoints Total Perk Points player has
+     * @param physicalDefensePerkPoints How many points are invested in this category
+     * @param archeryDefensePerkPoints How many points are invested in this category
+     * @param physicalOffensePerkPoints How many points are invested in this category
+     * @param archeryOffensePerkPoints How many points are invested in this category
+     * @param healthPerkPoints How many points are invested in this category
+     * @param criticalStrikePerkPoints How many points are invested in this category
+     * @param criticalPowerPerkPoints How many points are invested in this category
+     * @param houses Houses player owns
+     * @param logout Player logout time
+     * @param login Player login time
+     * @param godMode God Mode Enabled
+     * @param acceptingPay Can player be paid by others?
+     * @param playerKills Total number of other players killed
+     * @param mobKills Total number of Mobs killed
+     * @param deaths Total times a player has died
+     * @param fallDeaths Total times a player has died from fall damage, included in Deaths
+     * @param totalPlayTime Total time player has played
+     * @param lastDeathTime Last time a player died
+     * @param timesLoggedIn Total number of times a player has logged in
+     * @param moneyFromDrops How much money player has earned from drops
+     * @param dataPlayTime Time played in past sessions individually
+     * @param dataPvpDamage Total PvP damage output in past sessions individually
+     * @param dataPvpDefenseDamage Total PvP damaged defended against in past sessions individually
+     * @param dataPveDamage Total Damage output in past sessions
+     * @param dataPveDefenseDamage Total Damage defended against in past sessions
+     * @param dataWealthGain Wealth Gain over sessions
+     * @param dataWealth Average Balance over time
+     * @param dataMoneyDrops Money received from drops over sessions
+     * @param tag Player's Chat Tag
+     * @param lastKnownLocation Player's last known location, used on teleports
+     */
     public ThunderPlayer(String name, double money, int level, long exp, String grave, String graveWorld, int maxHealth, double currentHealth,
                          int luck, int physicalDefense, int archeryDefense, int physicalOffense, int archeryOffense, double criticalStrike,
                          double criticalPower, Date dateCreated, UUID uuid, UUID guild, UUID party, boolean pvpEnabled, int perkPoints,
@@ -63,7 +124,7 @@ public class ThunderPlayer {
                          long logout, long login, boolean godMode, boolean acceptingPay, int playerKills, int mobKills, int deaths, int fallDeaths,
                          long totalPlayTime, long lastDeathTime, int timesLoggedIn, double moneyFromDrops, long[] dataPlayTime, double[] dataPvpDamage,
                          double[] dataPvpDefenseDamage, double[] dataPveDamage, double[] dataPveDefenseDamage, double[] dataWealthGain,
-                         double[] dataMoneyDrops, String tag, String[] lastKnownLocation) {
+                         double[] dataMoneyDrops, String tag, String[] lastKnownLocation, double[] dataWealth) {
         this.name = name;
         this.money = money;
         this.level = level;
@@ -80,7 +141,7 @@ public class ThunderPlayer {
         this.criticalStrike = criticalStrike;
         this.criticalPower = criticalPower;
         this.dateCreated = dateCreated;
-        this.uuid = uuid;
+        this.UUID = uuid;
         this.guild = guild;
         this.party = party;
         this.pvpEnabled = pvpEnabled;
@@ -114,405 +175,6 @@ public class ThunderPlayer {
         this.dataMoneyDrops = dataMoneyDrops;
         this.tag = tag;
         this.lastKnownLocation = lastKnownLocation;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getMoney() {
-        return money;
-    }
-
-    public void setMoney(double money) {
-        this.money = money;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    public long getExp() {
-        return exp;
-    }
-
-    public void setExp(long exp) {
-        this.exp = exp;
-    }
-
-    public String getGrave() {
-        return grave;
-    }
-
-    public void setGrave(String grave) {
-        this.grave = grave;
-    }
-
-    public String getGraveWorld() {
-        return graveWorld;
-    }
-
-    public void setGraveWorld(String graveWorld) {
-        this.graveWorld = graveWorld;
-    }
-
-    public int getMaxHealth() {
-        return maxHealth;
-    }
-
-    public void setMaxHealth(int maxHealth) {
-        this.maxHealth = maxHealth;
-    }
-
-    public double getCurrentHealth() {
-        return currentHealth;
-    }
-
-    public void setCurrentHealth(double currentHealth) {
-        this.currentHealth = currentHealth;
-    }
-
-    public int getLuck() {
-        return luck;
-    }
-
-    public void setLuck(int luck) {
-        this.luck = luck;
-    }
-
-    public int getPhysicalDefense() {
-        return physicalDefense;
-    }
-
-    public void setPhysicalDefense(int physicalDefense) {
-        this.physicalDefense = physicalDefense;
-    }
-
-    public int getArcheryDefense() {
-        return archeryDefense;
-    }
-
-    public void setArcheryDefense(int archeryDefense) {
-        this.archeryDefense = archeryDefense;
-    }
-
-    public int getPhysicalOffense() {
-        return physicalOffense;
-    }
-
-    public void setPhysicalOffense(int physicalOffense) {
-        this.physicalOffense = physicalOffense;
-    }
-
-    public int getArcheryOffense() {
-        return archeryOffense;
-    }
-
-    public void setArcheryOffense(int archeryOffense) {
-        this.archeryOffense = archeryOffense;
-    }
-
-    public double getCriticalStrike() {
-        return criticalStrike;
-    }
-
-    public void setCriticalStrike(double criticalStrike) {
-        this.criticalStrike = criticalStrike;
-    }
-
-    public double getCriticalPower() {
-        return criticalPower;
-    }
-
-    public void setCriticalPower(double criticalPower) {
-        this.criticalPower = criticalPower;
-    }
-
-    public Date getDateCreated() {
-        return dateCreated;
-    }
-
-    public void setDateCreated(Date dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-
-    public UUID getUUID() {
-        return uuid;
-    }
-
-    public void setUUID(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public UUID getGuild() {
-        return guild;
-    }
-
-    public void setGuild(UUID guild) {
-        this.guild = guild;
-    }
-
-    public UUID getParty() {
-        return party;
-    }
-
-    public void setParty(UUID party) {
-        this.party = party;
-    }
-
-    public boolean isPvpEnabled() {
-        return pvpEnabled;
-    }
-
-    public void setPvpEnabled(boolean pvpEnabled) {
-        this.pvpEnabled = pvpEnabled;
-    }
-
-    public int getPerkPoints() {
-        return perkPoints;
-    }
-
-    public void setPerkPoints(int perkPoints) {
-        this.perkPoints = perkPoints;
-    }
-
-    public int getPhysicalDefensePerkPoints() {
-        return physicalDefensePerkPoints;
-    }
-
-    public void setPhysicalDefensePerkPoints(int physicalDefensePerkPoints) {
-        this.physicalDefensePerkPoints = physicalDefensePerkPoints;
-    }
-
-    public int getArcheryDefensePerkPoints() {
-        return archeryDefensePerkPoints;
-    }
-
-    public void setArcheryDefensePerkPoints(int archeryDefensePerkPoints) {
-        this.archeryDefensePerkPoints = archeryDefensePerkPoints;
-    }
-
-    public int getPhysicalOffensePerkPoints() {
-        return physicalOffensePerkPoints;
-    }
-
-    public void setPhysicalOffensePerkPoints(int physicalOffensePerkPoints) {
-        this.physicalOffensePerkPoints = physicalOffensePerkPoints;
-    }
-
-    public int getArcheryOffensePerkPoints() {
-        return archeryOffensePerkPoints;
-    }
-
-    public void setArcheryOffensePerkPoints(int archeryOffensePerkPoints) {
-        this.archeryOffensePerkPoints = archeryOffensePerkPoints;
-    }
-
-    public int getHealthPerkPoints() {
-        return healthPerkPoints;
-    }
-
-    public void setHealthPerkPoints(int healthPerkPoints) {
-        this.healthPerkPoints = healthPerkPoints;
-    }
-
-    public int getCriticalStrikePerkPoints() {
-        return criticalStrikePerkPoints;
-    }
-
-    public void setCriticalStrikePerkPoints(int criticalStrikePerkPoints) {
-        this.criticalStrikePerkPoints = criticalStrikePerkPoints;
-    }
-
-    public int getCriticalPowerPerkPoints() {
-        return criticalPowerPerkPoints;
-    }
-
-    public void setCriticalPowerPerkPoints(int criticalPowerPerkPoints) {
-        this.criticalPowerPerkPoints = criticalPowerPerkPoints;
-    }
-
-    public UUID[] getHouses() {
-        return houses;
-    }
-
-    public void setHouses(UUID[] houses) {
-        this.houses = houses;
-    }
-
-    public long getLogout() {
-        return logout;
-    }
-
-    public void setLogout(long logout) {
-        this.logout = logout;
-    }
-
-    public long getLogin() {
-        return login;
-    }
-
-    public void setLogin(long login) {
-        this.login = login;
-    }
-
-    public boolean isGodMode() {
-        return godMode;
-    }
-
-    public void setGodMode(boolean godMode) {
-        this.godMode = godMode;
-    }
-
-    public boolean isAcceptingPay() {
-        return acceptingPay;
-    }
-
-    public void setAcceptingPay(boolean acceptingPay) {
-        this.acceptingPay = acceptingPay;
-    }
-
-    public int getPlayerKills() {
-        return playerKills;
-    }
-
-    public void setPlayerKills(int playerKills) {
-        this.playerKills = playerKills;
-    }
-
-    public int getMobKills() {
-        return mobKills;
-    }
-
-    public void setMobKills(int mobKills) {
-        this.mobKills = mobKills;
-    }
-
-    public int getDeaths() {
-        return deaths;
-    }
-
-    public void setDeaths(int deaths) {
-        this.deaths = deaths;
-    }
-
-    public int getFallDeaths() {
-        return fallDeaths;
-    }
-
-    public void setFallDeaths(int fallDeaths) {
-        this.fallDeaths = fallDeaths;
-    }
-
-    public long getTotalPlayTime() {
-        return totalPlayTime;
-    }
-
-    public void setTotalPlayTime(long totalPlayTime) {
-        this.totalPlayTime = totalPlayTime;
-    }
-
-    public long getLastDeathTime() {
-        return lastDeathTime;
-    }
-
-    public void setLastDeathTime(long lastDeathTime) {
-        this.lastDeathTime = lastDeathTime;
-    }
-
-    public int getTimesLoggedIn() {
-        return timesLoggedIn;
-    }
-
-    public void setTimesLoggedIn(int timesLoggedIn) {
-        this.timesLoggedIn = timesLoggedIn;
-    }
-
-    public double getMoneyFromDrops() {
-        return moneyFromDrops;
-    }
-
-    public void setMoneyFromDrops(double moneyFromDrops) {
-        this.moneyFromDrops = moneyFromDrops;
-    }
-
-    public long[] getDataPlayTime() {
-        return dataPlayTime;
-    }
-
-    public void setDataPlayTime(long[] dataPlayTime) {
-        this.dataPlayTime = dataPlayTime;
-    }
-
-    public double[] getDataPvpDamage() {
-        return dataPvpDamage;
-    }
-
-    public void setDataPvpDamage(double[] dataPvpDamage) {
-        this.dataPvpDamage = dataPvpDamage;
-    }
-
-    public double[] getDataPvpDefenseDamage() {
-        return dataPvpDefenseDamage;
-    }
-
-    public void setDataPvpDefenseDamage(double[] dataPvpDefenseDamage) {
-        this.dataPvpDefenseDamage = dataPvpDefenseDamage;
-    }
-
-    public double[] getDataPveDamage() {
-        return dataPveDamage;
-    }
-
-    public void setDataPveDamage(double[] dataPveDamage) {
-        this.dataPveDamage = dataPveDamage;
-    }
-
-    public double[] getDataPveDefenseDamage() {
-        return dataPveDefenseDamage;
-    }
-
-    public void setDataPveDefenseDamage(double[] dataPveDefenseDamage) {
-        this.dataPveDefenseDamage = dataPveDefenseDamage;
-    }
-
-    public double[] getDataWealthGain() {
-        return dataWealthGain;
-    }
-
-    public void setDataWealthGain(double[] dataWealthGain) {
-        this.dataWealthGain = dataWealthGain;
-    }
-
-    public double[] getDataMoneyDrops() {
-        return dataMoneyDrops;
-    }
-
-    public void setDataMoneyDrops(double[] dataMoneyDrops) {
-        this.dataMoneyDrops = dataMoneyDrops;
-    }
-
-    public String getTag() {
-        return tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
-    }
-
-    public String[] getLastKnownLocation() {
-        return lastKnownLocation;
-    }
-
-    public void setLastKnownLocation(String[] lastKnownLocation) {
-        this.lastKnownLocation = lastKnownLocation;
+        this.dataWealth = dataWealth;
     }
 }
