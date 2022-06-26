@@ -16,15 +16,18 @@ public class ArrayUtil {
 
     public static String[] addToArray(String[] oldArray, String value) {
 
-        String[] newArray = new String[oldArray.length + 1];
-
-        for (int i = 0; i < oldArray.length + 1;) {
-
-            if (i < oldArray.length) {
-                newArray[i] = oldArray[i];
-            } else {
-                newArray[i] = value;
-            }
+        int length;
+        String[] newArray;
+        if (oldArray.length + 1 >= 50) {
+            newArray = new String[50];
+            length = 50;
+        } else {
+            length = oldArray.length;
+            newArray = new String[length + 1];
+        }
+        newArray[0] = value;
+        for (int i = 0; i < length;) {
+            newArray[i + 1] = oldArray[i];
             i++;
         }
         return newArray;
@@ -39,17 +42,20 @@ public class ArrayUtil {
      * @param value The values that an array is adding to
      * @return Array of object type
      */
-    public static Long[] addToArray(Long[] oldArray, long value) {
+    public static long[] addToArray(long[] oldArray, long value) {
 
-        Long[] newArray = new Long[oldArray.length + 1];
-
-        for (int i = 0; i < oldArray.length + 1;) {
-
-            if (i < oldArray.length) {
-                newArray[i] = oldArray[i];
-            } else {
-                newArray[i] = value;
-            }
+        int length;
+        long[] newArray;
+        if (oldArray.length + 1 >= 50) {
+            newArray = new long[50];
+            length = 50;
+        } else {
+            length = oldArray.length;
+            newArray = new long[length + 1];
+        }
+        newArray[0] = value;
+        for (int i = 0; i < length;) {
+            newArray[i + 1] = oldArray[i];
             i++;
         }
 
@@ -67,15 +73,18 @@ public class ArrayUtil {
      */
     public static double[] addToArray(double[] oldArray, double value) {
 
-        double[] newArray = new double[oldArray.length + 1];
-
-        for (int i = 0; i < oldArray.length + 1;) {
-
-            if (i < oldArray.length) {
-                newArray[i] = oldArray[i];
-            } else {
-                newArray[i] = value;
-            }
+        int length;
+        double[] newArray;
+        if (oldArray.length + 1 >= 50) {
+            newArray = new double[50];
+            length = 50;
+        } else {
+            length = oldArray.length;
+            newArray = new double[length + 1];
+        }
+        newArray[0] = value;
+        for (int i = 0; i < length;) {
+            newArray[i + 1] = oldArray[i];
             i++;
         }
 
@@ -93,15 +102,18 @@ public class ArrayUtil {
      */
     public static UUID[] addToArray(UUID[] oldArray, UUID value) {
 
-        UUID[] newArray = new UUID[oldArray.length + 1];
-
-        for (int i = 0; i < oldArray.length + 1;) {
-
-            if (i < oldArray.length) {
-                newArray[i] = oldArray[i];
-            } else {
-                newArray[i] = value;
-            }
+        int length;
+        UUID[] newArray;
+        if (oldArray.length + 1 >= 50) {
+            newArray = new UUID[50];
+            length = 50;
+        } else {
+            length = oldArray.length;
+            newArray = new UUID[length + 1];
+        }
+        newArray[0] = value;
+        for (int i = 0; i < length;) {
+            newArray[i + 1] = oldArray[i];
             i++;
         }
 
@@ -117,9 +129,9 @@ public class ArrayUtil {
      * @param value The values that an array is removing from
      * @return Array of object type
      */
-    public static Long[] removeFromArray(Long[] oldArray, long value) {
+    public static long[] removeFromArray(long[] oldArray, long value) {
 
-        Long[] newArray = new Long[oldArray.length - 1];
+        long[] newArray = new long[oldArray.length - 1];
         int y = 0;
         for (int i = 0; i < oldArray.length - 1;) {
 
