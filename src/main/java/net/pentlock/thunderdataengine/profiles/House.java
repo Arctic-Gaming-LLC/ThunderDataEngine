@@ -12,9 +12,9 @@ public class House {
     @Setter @Getter
     private double cost;
     @Setter @Getter
-    private double unitsAvailable;
+    private int unitsAvailable;
     @Setter @Getter
-    private double unitsIssued;
+    private int unitsIssued;
     @Setter @Getter
     private String[] doorLocation; // exact location of door
     @Setter @Getter
@@ -30,14 +30,18 @@ public class House {
      *
      * @param name the Name of the House
      * @param cost How much the house costs to purchase
+     * @param totalUnits Number of units in total
+     * @param unitsIssued How much the house costs to purchase
      * @param doorLocation The exact location of the door
      * @param arrivalLocation Where players should spawn in the house
      * @param instances Stores the locations and UUIDs of all instances of this house type
      * @param instanceLocation Stores a map of player UUIDs and House Locations
      */
-    public House(String name, double cost, double unitsAvailable,double unitsIssued, String[] doorLocation, String[] arrivalLocation, Map<UUID, String[]> instances, Map<UUID, String[]> instanceLocation) {
+    public House(String name, double cost, int totalUnits, int unitsIssued, String[] doorLocation, String[] arrivalLocation, Map<UUID, String[]> instances, Map<UUID, String[]> instanceLocation) {
         this.name = name;
         this.cost = cost;
+        this.unitsAvailable = totalUnits;
+        this.unitsIssued = unitsIssued;
         this.doorLocation = doorLocation;
         this.arrivalLocation = arrivalLocation;
         this.instances = instances;
