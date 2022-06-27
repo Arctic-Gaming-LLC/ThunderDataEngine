@@ -113,7 +113,7 @@ public final class ThunderDataEngine extends JavaPlugin implements Listener {
                     UUID.fromString("069a79f4-44e9-4726-a5be-fca90e38aaf5"), UUID.fromString("069a79f4-44e9-4726-a5be-fca90e38aaf5"),
                     new UUID[0], members,16,"You do not have a guild.", 0,0,0,0,
                     0,0,0,0, false, "None", System.currentTimeMillis(),
-                    System.currentTimeMillis(), false);
+                    System.currentTimeMillis(), false, "#ffffff");
         } else {
             try {
                 GuildUtil.loadGuild(UUID.fromString("069a79f4-44e9-4726-a5be-fca90e38aaf5"));

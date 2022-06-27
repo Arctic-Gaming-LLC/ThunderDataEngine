@@ -52,6 +52,8 @@ public class Guild {
     private long refreshTime;
     @Setter @Getter
     private boolean refreshActive;
+    @Setter @Getter
+    private String color;
 
     /**
      * <h3>Guild Object</h3>
@@ -84,7 +86,7 @@ public class Guild {
     public Guild(UUID uuid, double bankBalance, String name, int level, UUID leader, UUID coLeader, UUID[] officers, UUID[] members,
                  int maxMembers, String messageBoard, int points, int physicalDefensePoints, int archeryDefensePoints, int physicalOffensePoints,
                  int archeryOffensePoints, int healthPoints, int criticalStrikePoints, int criticalPowerPoints, boolean boostActive, String boostType,
-                 long boostTime, long refreshTime, boolean refreshActive) {
+                 long boostTime, long refreshTime, boolean refreshActive, String color) {
         this.uuid = uuid;
         this.bankBalance = bankBalance;
         this.name = name;
@@ -108,5 +110,6 @@ public class Guild {
         this.boostTime = boostTime;
         this.refreshTime = refreshTime;
         this.refreshActive = refreshActive;
+        this.color = color;
     }
 }
