@@ -38,6 +38,10 @@ public final class ThunderDataEngine extends JavaPlugin implements Listener {
         pm.registerEvents(new PlayerLoginListener(), this);
         pm.registerEvents(new PlayerLogoutListener(), this);
 
+        if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
+            new PlaceholderRegistry(this).register();
+        }
+
         runnableSaveJson();
         initiateFiles();
     }
