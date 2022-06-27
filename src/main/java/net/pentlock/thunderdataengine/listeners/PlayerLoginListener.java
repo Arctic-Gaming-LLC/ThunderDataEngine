@@ -5,6 +5,7 @@ import net.pentlock.thunderdataengine.profiles.Guild;
 import net.pentlock.thunderdataengine.profiles.ThunderPlayer;
 import net.pentlock.thunderdataengine.utilities.GuildUtil;
 import net.pentlock.thunderdataengine.utilities.PlayerUtil;
+import net.pentlock.thunderdataengine.validator.PlayerValidator;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -14,6 +15,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 // This class sets all of the default stats for a player the first time they log in
@@ -41,7 +44,7 @@ public class PlayerLoginListener implements Listener {
                     playerUUID, playerUUID, playerUUID, false, 0, 0, 0, 0,
                     0, 0, 0, 0, new String[0], System.currentTimeMillis(),
                     System.currentTimeMillis(), false, true, 0, 0, 0, 0, 0L, System.currentTimeMillis(), 1, 0.0,
-                    new long[0], new double[0], new double[0], new double[0], new double[0], new double[0], new double[0], "New", new String[0], new double[0]);
+                    new long[0], new double[0], new double[0], new double[0], new double[0], new double[0], new double[0], "New", new String[0], new double[0], runSessionSetup());
 
         }
 
@@ -50,6 +53,13 @@ public class PlayerLoginListener implements Listener {
         // Clears a player's party on login - ensures that parties are not stored locally
 
         thunderPlayer.setParty(player.getUniqueId());
+
+        // Validation of files
+        new PlayerValidator(thunderPlayer, player);
+
+        // Handles login times
+        thunderPlayer.setLogin(System.currentTimeMillis());
+        thunderPlayer.setTimesLoggedIn(thunderPlayer.getTimesLoggedIn() + 1);
         PlayerUtil.updatePlayer(thunderPlayer.getUUID(), thunderPlayer);
 
 
@@ -65,7 +75,18 @@ public class PlayerLoginListener implements Listener {
                 }
             }
         }
+    }
 
+    private Map<String, double[]> runSessionSetup() {
+        Map<String, double[]> sessionStats = new HashMap<>();
 
+        sessionStats.put("pvpDamage", new double[0]);
+        sessionStats.put("pvpDefenseDamage", new double[0]);
+        sessionStats.put("pveDamage", new double[0]);
+        sessionStats.put("pveDefenseDamage", new double[0]);
+        sessionStats.put("wealthGain", new double[0]);
+        sessionStats.put("moneyDrops", new double[0]);
+
+        return sessionStats;
     }
 }

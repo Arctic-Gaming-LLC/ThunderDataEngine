@@ -4,60 +4,62 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.Map;
 import java.util.UUID;
 
 public class ThunderPlayer {
     @Setter @Getter private String name;
-    @Setter @Getter private double money;
-    @Setter @Getter private int level;
-    @Setter @Getter private long exp;
-    @Setter @Getter private String grave;
-    @Setter @Getter private String graveWorld;
-    @Setter @Getter private int maxHealth;
-    @Setter @Getter private double currentHealth;
-    @Setter @Getter private int luck;
-    @Setter @Getter private int physicalDefense;
-    @Setter @Getter private int archeryDefense;
-    @Setter @Getter private int physicalOffense;
-    @Setter @Getter private int archeryOffense;
-    @Setter @Getter private double criticalStrike;
-    @Setter @Getter private double criticalPower;
+    @Setter @Getter private double money;  // implemented in TCS
+    @Setter @Getter private int level;  // implemented in TCS
+    @Setter @Getter private long exp;  // implemented in TCS
+    @Setter @Getter private String grave; // implemented in TCS
+    @Setter @Getter private String graveWorld;  // implemented in TCS
+    @Setter @Getter private int maxHealth;  // implemented in TCS
+    @Setter @Getter private double currentHealth;  // implemented in TCS
+    @Setter @Getter private int luck;  // implemented in TCS
+    @Setter @Getter private int physicalDefense;  // implemented in TCS
+    @Setter @Getter private int archeryDefense;  // implemented in TCS
+    @Setter @Getter private int physicalOffense;  // implemented in TCS
+    @Setter @Getter private int archeryOffense;  // implemented in TCS
+    @Setter @Getter private double criticalStrike;  // implemented in TCS
+    @Setter @Getter private double criticalPower;  // implemented in TCS
     @Setter @Getter private Date dateCreated;
     @Setter @Getter private UUID UUID;
-    @Setter @Getter private UUID guild;
-    @Setter @Getter private UUID party;
-    @Setter @Getter private boolean pvpEnabled;
-    @Setter @Getter private int perkPoints;
-    @Setter @Getter private int physicalDefensePerkPoints;
-    @Setter @Getter private int archeryDefensePerkPoints;
-    @Setter @Getter private int physicalOffensePerkPoints;
-    @Setter @Getter private int archeryOffensePerkPoints;
-    @Setter @Getter private int healthPerkPoints;
-    @Setter @Getter private int criticalStrikePerkPoints;
-    @Setter @Getter private int criticalPowerPerkPoints;
-    @Setter @Getter private String[] houses;
-    @Setter @Getter private long logout;
-    @Setter @Getter private long login;
-    @Setter @Getter private boolean godMode;
-    @Setter @Getter private boolean acceptingPay;
-    @Setter @Getter private int playerKills;
-    @Setter @Getter private int mobKills;
-    @Setter @Getter private int deaths;
-    @Setter @Getter private int fallDeaths;
-    @Setter @Getter private long totalPlayTime;
-    @Setter @Getter private long lastDeathTime;
-    @Setter @Getter private int timesLoggedIn;
-    @Setter @Getter private double moneyFromDrops;
-    @Setter @Getter private long[] dataPlayTime;
-    @Setter @Getter private double[] dataPvpDamage;
-    @Setter @Getter private double[] dataPvpDefenseDamage;
-    @Setter @Getter private double[] dataPveDamage;
-    @Setter @Getter private double[] dataPveDefenseDamage;
-    @Setter @Getter private double[] dataWealthGain;
-    @Setter @Getter private double[] dataMoneyDrops;
-    @Setter @Getter private String tag;
-    @Setter @Getter private String[] lastKnownLocation;
-    @Setter @Getter private double[] dataWealth;
+    @Setter @Getter private UUID guild;  // implemented in TCS
+    @Setter @Getter private UUID party;  // implemented in TCS
+    @Setter @Getter private boolean pvpEnabled;  // implemented in TCS
+    @Setter @Getter private int perkPoints;  // implemented in TCS
+    @Setter @Getter private int physicalDefensePerkPoints;  // implemented in TCS
+    @Setter @Getter private int archeryDefensePerkPoints;  // implemented in TCS
+    @Setter @Getter private int physicalOffensePerkPoints;  // implemented in TCS
+    @Setter @Getter private int archeryOffensePerkPoints;  // implemented in TCS
+    @Setter @Getter private int healthPerkPoints;  // implemented in TCS
+    @Setter @Getter private int criticalStrikePerkPoints;  // implemented in TCS
+    @Setter @Getter private int criticalPowerPerkPoints;  // implemented in TCS
+    @Setter @Getter private String[] houses;  // implemented in PlayerHousing
+    @Setter @Getter private long logout; // implemented in engine
+    @Setter @Getter private long login;  // implemented in engine
+    @Setter @Getter private boolean godMode;  // implemented in TCS, command in core
+    @Setter @Getter private boolean acceptingPay;  // implemented in core
+    @Setter @Getter private int playerKills;  // implemented in TCS
+    @Setter @Getter private int mobKills;  // implemented in TCS
+    @Setter @Getter private int deaths;  // implemented in TCS
+    @Setter @Getter private int fallDeaths;  // implemented in TCS
+    @Setter @Getter private long totalPlayTime;  // implemented in engine
+    @Setter @Getter private long lastDeathTime;  // implemented in TCS
+    @Setter @Getter private int timesLoggedIn;  // implemented in engine
+    @Setter @Getter private double moneyFromDrops;  // implemented in TCS
+    @Setter @Getter private long[] dataPlayTime;  // implemented in engine
+    @Setter @Getter private double[] dataPvpDamage;  // implemented in TCS
+    @Setter @Getter private double[] dataPvpDefenseDamage;  // implemented in TCS
+    @Setter @Getter private double[] dataPveDamage;  // implemented in TCS
+    @Setter @Getter private double[] dataPveDefenseDamage;  // implemented in TCS
+    @Setter @Getter private double[] dataWealthGain;  // implemented in TCS
+    @Setter @Getter private double[] dataMoneyDrops;  // implemented in TCS
+    @Setter @Getter private String tag;  // implemented in chat system
+    @Setter @Getter private String[] lastKnownLocation;  // implemented in core
+    @Setter @Getter private double[] dataWealth;   // implemented in TCS
+    @Setter @Getter private Map<String, double[]> sessionStats;
 
     /**
      * <h3>Thunder Player Object</h3>
@@ -106,15 +108,16 @@ public class ThunderPlayer {
      * @param timesLoggedIn Total number of times a player has logged in
      * @param moneyFromDrops How much money player has earned from drops
      * @param dataPlayTime Time played in past sessions individually
-     * @param dataPvpDamage Total PvP damage output in past sessions individually
-     * @param dataPvpDefenseDamage Total PvP damaged defended against in past sessions individually
-     * @param dataPveDamage Total Damage output in past sessions
-     * @param dataPveDefenseDamage Total Damage defended against in past sessions
+     * @param dataPvpDamage Average PvP damage output in past sessions individually
+     * @param dataPvpDefenseDamage Average PvP damaged defended against in past sessions individually
+     * @param dataPveDamage Average Damage output in past sessions
+     * @param dataPveDefenseDamage Average Damage defended against in past sessions
      * @param dataWealthGain Wealth Gain over sessions
      * @param dataWealth Average Balance over time
      * @param dataMoneyDrops Money received from drops over sessions
      * @param tag Player's Chat Tag
      * @param lastKnownLocation Player's last known location, used on teleports
+     * @param sessionStats Players temporary session stats
      */
     public ThunderPlayer(String name, double money, int level, long exp, String grave, String graveWorld, int maxHealth, double currentHealth,
                          int luck, int physicalDefense, int archeryDefense, int physicalOffense, int archeryOffense, double criticalStrike,
@@ -124,7 +127,7 @@ public class ThunderPlayer {
                          long logout, long login, boolean godMode, boolean acceptingPay, int playerKills, int mobKills, int deaths, int fallDeaths,
                          long totalPlayTime, long lastDeathTime, int timesLoggedIn, double moneyFromDrops, long[] dataPlayTime, double[] dataPvpDamage,
                          double[] dataPvpDefenseDamage, double[] dataPveDamage, double[] dataPveDefenseDamage, double[] dataWealthGain,
-                         double[] dataMoneyDrops, String tag, String[] lastKnownLocation, double[] dataWealth) {
+                         double[] dataMoneyDrops, String tag, String[] lastKnownLocation, double[] dataWealth, Map<String, double[]> sessionStats) {
         this.name = name;
         this.money = money;
         this.level = level;
@@ -176,5 +179,6 @@ public class ThunderPlayer {
         this.tag = tag;
         this.lastKnownLocation = lastKnownLocation;
         this.dataWealth = dataWealth;
+        this.sessionStats = sessionStats;
     }
 }

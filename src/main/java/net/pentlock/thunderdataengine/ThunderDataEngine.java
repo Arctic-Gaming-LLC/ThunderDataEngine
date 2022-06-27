@@ -18,7 +18,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Set;
 import java.util.UUID;
 
@@ -92,11 +91,9 @@ public final class ThunderDataEngine extends JavaPlugin implements Listener {
 
     public void initiateFiles() {
         String[] fileNames = new File(ThunderDataEngine.getPlugin().getDataFolder().getAbsolutePath() + "/HouseData").list();
-        ThunderDataEngine.getPlugin().log("FileNames: " + Arrays.toString(fileNames));
         if (fileNames != null) {
             for (String fileName : fileNames) {
                 String cleaner = new FileNameCleaner().fileNameCleaner(fileName);
-                ThunderDataEngine.getPlugin().log("Clean name: " + cleaner);
                 try {
                     HouseUtil.loadHouse(cleaner);
                 } catch (FileNotFoundException e) {
