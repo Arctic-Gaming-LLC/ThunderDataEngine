@@ -81,14 +81,14 @@ public class PlayerUtil {
                                              long logout, long login, boolean godMode, boolean acceptingPay, int playerKills, int mobKills, int deaths, int fallDeaths,
                                              long totalPlayTime, long lastDeathTime, int timesLoggedIn, double moneyFromDrops, long[] dataPlayTime,
                                              double[] dataPvpDamage, double[] dataPvpDefenseDamage, double[] dataPveDamage, double[] dataPveDefenseDamage,
-                                             double[] dataWealthGain, double[] dataMoneyDrops, String tag, String[] lastKnownLocation, double[] dataWealth) {
+                                             double[] dataWealthGain, double[] dataMoneyDrops, String tag, String[] lastKnownLocation, double[] dataWealth, Map<String,double[]> sessionStats) {
 
         ThunderPlayer thunderPlayer = new ThunderPlayer(name, money, level, exp, grave, graveWorld, maxHealth, currentHealth, luck, physicalDefense, archeryDefense,
                 physicalOffense, archeryOffense, criticalStrike, criticalPower, dateCreated, uuid, guild, party, pvpEnabled, perkPoints,
                 physicalDefensePerkPoints, archeryDefensePerkPoints, physicalOffensePerkPoints, archeryOffensePerkPoints, healthPerkPoints,
                 criticalStrikePerkPoints, criticalPowerPerkPoints, houses, logout, login, godMode, acceptingPay, playerKills,
                 mobKills, deaths, fallDeaths, totalPlayTime, lastDeathTime, timesLoggedIn, moneyFromDrops, dataPlayTime, dataPvpDamage,
-                dataPvpDefenseDamage, dataPveDamage, dataPveDefenseDamage, dataWealthGain, dataMoneyDrops, tag, lastKnownLocation, dataWealth);
+                dataPvpDefenseDamage, dataPveDamage, dataPveDefenseDamage, dataWealthGain, dataMoneyDrops, tag, lastKnownLocation, dataWealth, sessionStats);
 
         THUNDER_PLAYERS.put(uuid, thunderPlayer);
 
@@ -171,7 +171,7 @@ public class PlayerUtil {
         thunderPlayer.setTimesLoggedIn(newThunderPlayer.getTimesLoggedIn());
         thunderPlayer.setMoneyFromDrops(newThunderPlayer.getMoneyFromDrops());
         thunderPlayer.setDataPlayTime(newThunderPlayer.getDataPlayTime());
-        thunderPlayer.setDataPveDamage(newThunderPlayer.getDataPvpDamage());
+        thunderPlayer.setDataPvpDamage(newThunderPlayer.getDataPvpDamage());
         thunderPlayer.setDataPvpDefenseDamage(newThunderPlayer.getDataPvpDefenseDamage());
         thunderPlayer.setDataPveDamage(newThunderPlayer.getDataPveDamage());
         thunderPlayer.setDataPveDefenseDamage(newThunderPlayer.getDataPveDefenseDamage());
@@ -180,6 +180,7 @@ public class PlayerUtil {
         thunderPlayer.setTag(newThunderPlayer.getTag());
         thunderPlayer.setLastKnownLocation(newThunderPlayer.getLastKnownLocation());
         thunderPlayer.setDataWealth(newThunderPlayer.getDataWealth());
+        thunderPlayer.setSessionStats(newThunderPlayer.getSessionStats());
 
         return thunderPlayer;
     }
