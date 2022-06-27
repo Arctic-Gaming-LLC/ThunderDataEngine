@@ -101,6 +101,22 @@ public final class ThunderDataEngine extends JavaPlugin implements Listener {
                 }
             }
         }
+        File file = new File(ThunderDataEngine.getPlugin().getDataFolder().getAbsolutePath() + "/GuildData/069a79f4-44e9-4726-a5be-fca90e38aaf5.json");
+        if (!file.exists()) {
+            UUID[] members = new UUID[1];
+            members[0] = UUID.fromString("069a79f4-44e9-4726-a5be-fca90e38aaf5");
+            GuildUtil.createGuild(UUID.fromString("069a79f4-44e9-4726-a5be-fca90e38aaf5"), 0,"No Guild",1,
+                    UUID.fromString("069a79f4-44e9-4726-a5be-fca90e38aaf5"), UUID.fromString("069a79f4-44e9-4726-a5be-fca90e38aaf5"),
+                    new UUID[0], members,16,"You do not have a guild.", 0,0,0,0,
+                    0,0,0,0, false, "None", System.currentTimeMillis(),
+                    System.currentTimeMillis(), false);
+        } else {
+            try {
+                GuildUtil.loadGuild(UUID.fromString("069a79f4-44e9-4726-a5be-fca90e38aaf5"));
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
 
