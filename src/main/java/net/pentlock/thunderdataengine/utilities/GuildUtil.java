@@ -45,9 +45,9 @@ public class GuildUtil {
     public static Guild createGuild(UUID uuid, double bankBalance, String name, int level, UUID leader, UUID coLeader, UUID[] officers, UUID[] members,
                                     int maxMembers, String messageBoard, int points, int physicalDefensePoints, int archeryDefensePoints, int physicalOffensePoints,
                                     int archeryOffensePoints, int healthPoints, int criticalStrikePoints, int criticalPowerPoints, boolean boostActive, String activeBoost,
-                                    long boostTime, long refreshTime, boolean refreshActive) {
+                                    long boostTime, long refreshTime, boolean refreshActive, String color) {
         Guild guild = new Guild(uuid, bankBalance, name, level, leader, coLeader, officers, members, maxMembers, messageBoard, points, physicalDefensePoints, archeryDefensePoints,
-                physicalOffensePoints, archeryOffensePoints, healthPoints, criticalStrikePoints, criticalPowerPoints, boostActive, activeBoost, boostTime, refreshTime, refreshActive);
+                physicalOffensePoints, archeryOffensePoints, healthPoints, criticalStrikePoints, criticalPowerPoints, boostActive, activeBoost, boostTime, refreshTime, refreshActive, color);
 
         GUILDS.put(uuid, guild);
 

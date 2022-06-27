@@ -251,6 +251,31 @@ public class PlaceholderRegistry extends PlaceholderExpansion {
         if (identifier.equals("guild_name")) {
             return guild.getName();
         }
+
+        // %tde_guild_level%
+        if (identifier.equals("guild_level")) {
+            return String.valueOf(guild.getLevel());
+        }
+
+        // %tde_guild_bank%
+        if (identifier.equals("guild_bank")) {
+            return String.valueOf(guild.getBankBalance());
+        }
+
+        // %tde_guild_message%
+        if (identifier.equals("guild_message")) {
+            return String.valueOf(guild.getMessageBoard());
+        }
+
+        // %tde_guild_points%
+        if (identifier.equals("guild_points")) {
+            return String.valueOf(guild.getPoints());
+        }
+
+        // %tde_guild_max_members%
+        if (identifier.equals("guild_max_members")) {
+            return String.valueOf(guild.getMaxMembers());
+        }
         return null;
     }
 }
