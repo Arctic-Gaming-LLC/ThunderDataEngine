@@ -220,11 +220,11 @@ public class ArrayUtil {
 
         long[] newArray = new long[oldArray.length - 1];
         int y = 0;
-        for (int i = 0; i < oldArray.length - 1;) {
+        for (int i = 0; i < oldArray.length;) {
 
             if (oldArray[i] != value) {
                 newArray[y] = oldArray[i];
-
+                y++;
             }
             i++;
         }
@@ -245,11 +245,11 @@ public class ArrayUtil {
 
         double[] newArray = new double[oldArray.length - 1];
         int y = 0;
-        for (int i = 0; i < oldArray.length - 1;) {
+        for (int i = 0; i < oldArray.length;) {
 
             if (oldArray[i] != value) {
                 newArray[y] = oldArray[i];
-
+                y++;
             }
             i++;
         }
@@ -270,11 +270,11 @@ public class ArrayUtil {
 
         String[] newArray = new String[oldArray.length - 1];
         int y = 0;
-        for (int i = 0; i < oldArray.length - 1;) {
+        for (int i = 0; i < oldArray.length;) {
 
-            if (oldArray[i].equalsIgnoreCase(value)) {
+            if (!oldArray[i].equalsIgnoreCase(value)) {
                 newArray[y] = oldArray[i];
-
+                y++;
             }
             i++;
         }
@@ -295,11 +295,11 @@ public class ArrayUtil {
 
         UUID[] newArray = new UUID[oldArray.length - 1];
         int y = 0;
-        for (int i = 0; i < oldArray.length - 1;) {
+        for (int i = 0; i < oldArray.length;) {
 
-            if (oldArray[i] != value) {
+            if (!oldArray[i].toString().equalsIgnoreCase(value.toString())) {
                 newArray[y] = oldArray[i];
-
+                y++;
             }
             i++;
         }
