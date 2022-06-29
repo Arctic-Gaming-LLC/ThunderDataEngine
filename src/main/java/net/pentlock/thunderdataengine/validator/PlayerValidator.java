@@ -100,6 +100,12 @@ public class PlayerValidator {
         sessionStats.put("pveDefenseDamage", new double[0]);
         sessionStats.put("wealthGain", new double[0]);
         sessionStats.put("moneyDrops", new double[0]);
+        sessionStats.put("pvpDamageAve", new double[0]);
+        sessionStats.put("pvpDefenseDamageAve", new double[0]);
+        sessionStats.put("pveDamageAve", new double[0]);
+        sessionStats.put("pveDefenseDamageAve", new double[0]);
+        sessionStats.put("wealthGainAve", new double[0]);
+        sessionStats.put("moneyDropsAve", new double[0]);
 
         return sessionStats;
     }

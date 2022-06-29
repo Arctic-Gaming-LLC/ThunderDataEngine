@@ -120,12 +120,6 @@ public class GuildUtil {
         guild.setRefreshTime(newGuild.getRefreshTime());
         guild.setRefreshActive(newGuild.isRefreshActive());
 
-
-        try {
-            saveGuild(uuid);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         return guild;
     }
 
