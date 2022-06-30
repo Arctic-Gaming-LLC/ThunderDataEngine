@@ -37,29 +37,30 @@ public class PlayerLogoutListener implements Listener {
             Map<String, double[]> sessionStats = thunderPlayer.getSessionStats();
 
             // Handles averages at session close
+
             double pvpDamageAverage = runAverage(sessionStats, "pvpDamage");
             if (!Double.isNaN(pvpDamageAverage)) {
-                thunderPlayer.setDataPvpDamage(ArrayUtil.addToArray(sessionStats.get("pvpDamage"), pvpDamageAverage));
+                thunderPlayer.setDataPvpDamage(ArrayUtil.addToArray(thunderPlayer.getDataPvpDamage(), pvpDamageAverage));
             }
             double pvpDefenseDamage = runAverage(sessionStats, "pvpDefenseDamage");
             if (!Double.isNaN(pvpDefenseDamage)) {
-                thunderPlayer.setDataPvpDefenseDamage(ArrayUtil.addToArray(sessionStats.get("pvpDefenseDamage"), pvpDefenseDamage));
+                thunderPlayer.setDataPvpDefenseDamage(ArrayUtil.addToArray(thunderPlayer.getDataPvpDefenseDamage(), pvpDefenseDamage));
             }
             double pveDamageAverage = runAverage(sessionStats, "pveDamage");
             if (!Double.isNaN(pveDamageAverage)) {
-                thunderPlayer.setDataPveDamage(ArrayUtil.addToArray(sessionStats.get("pveDamage"), pveDamageAverage));
+                thunderPlayer.setDataPveDamage(ArrayUtil.addToArray(thunderPlayer.getDataPveDamage(), pveDamageAverage));
             }
             double pveDefenseDamage = runAverage(sessionStats, "pveDefenseDamage");
             if (!Double.isNaN(pveDefenseDamage)) {
-                thunderPlayer.setDataPveDefenseDamage(ArrayUtil.addToArray(sessionStats.get("pveDefenseDamage"), pveDefenseDamage));
+                thunderPlayer.setDataPveDefenseDamage(ArrayUtil.addToArray(thunderPlayer.getDataPveDefenseDamage(), pveDefenseDamage));
             }
             double wealthGainTotal = runTotal(sessionStats, "wealthGain");
             if (!Double.isNaN(wealthGainTotal)) {
-                thunderPlayer.setDataWealthGain(ArrayUtil.addToArray(sessionStats.get("wealthGain"), wealthGainTotal));
+                thunderPlayer.setDataWealthGain(ArrayUtil.addToArray(thunderPlayer.getDataWealthGain(), wealthGainTotal));
             }
             double moneyDropsTotal = runTotal(sessionStats, "moneyDrops");
             if (!Double.isNaN(moneyDropsTotal)) {
-                thunderPlayer.setDataMoneyDrops(ArrayUtil.addToArray(sessionStats.get("moneyDrops"), moneyDropsTotal));
+                thunderPlayer.setDataMoneyDrops(ArrayUtil.addToArray(thunderPlayer.getDataMoneyDrops(), moneyDropsTotal));
             }
 
             //Updates the list of online Guild Members - important for Chat System
@@ -137,7 +138,14 @@ public class PlayerLogoutListener implements Listener {
             i++;
         }
         sessionStats.put(type, new double[0]);
-        return totalStat / stats.length;
+        if (sessionStats.get(type + "Ave").length >= 1) {
+            double currentAverage = totalStat / stats.length;
+            double[] aveStat = sessionStats.get(type + "Ave");
+            sessionStats.put(type + "Ave", new double[0]);
+            return (aveStat[0] + currentAverage) / 2;
+        } else {
+            return totalStat / stats.length;
+        }
     }
 
     private double runTotal(Map<String, double[]> sessionStats, String type) {

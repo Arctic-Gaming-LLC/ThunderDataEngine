@@ -17,20 +17,14 @@ public class ArrayUtil {
 
     public static String[] addToArray(String[] oldArray, String value) {
 
-        int length;
-        String[] newArray;
-        if (oldArray.length >= 50) {
-            newArray = new String[50];
-            length = 50;
-        } else {
-            length = oldArray.length + 1;
-            newArray = new String[length + 1];
-        }
+        String[] newArray = new String[oldArray.length + 1];
+
         newArray[0] = value;
-        for (int i = 0; i < length;) {
+        for (int i = 0; i < oldArray.length;) {
             newArray[i + 1] = oldArray[i];
             i++;
         }
+
         return newArray;
     }
 
@@ -45,18 +39,10 @@ public class ArrayUtil {
      */
     public static long[] addToArray(long[] oldArray, long value) {
 
-        int length;
-        long[] newArray;
-        if (oldArray.length >= 50) {
-            newArray = new long[50];
-            length = 49;
+        long[] newArray = new long[oldArray.length + 1];
 
-        } else {
-            length = oldArray.length;
-            newArray = new long[length + 1];
-        }
         newArray[0] = value;
-        for (int i = 0; i < length;) {
+        for (int i = 0; i < oldArray.length;) {
             newArray[i + 1] = oldArray[i];
             i++;
         }
@@ -160,17 +146,10 @@ public class ArrayUtil {
      */
     public static double[] addToArray(double[] oldArray, double value) {
 
-        int length;
-        double[] newArray;
-        if (oldArray.length >= 50) {
-            newArray = new double[50];
-            length = 49;
-        } else {
-            length = oldArray.length;
-            newArray = new double[length + 1];
-        }
+        double[] newArray = new double[oldArray.length + 1];
+
         newArray[0] = value;
-        for (int i = 0; i < length;) {
+        for (int i = 0; i < oldArray.length;) {
             newArray[i + 1] = oldArray[i];
             i++;
         }
@@ -189,17 +168,10 @@ public class ArrayUtil {
      */
     public static UUID[] addToArray(UUID[] oldArray, UUID value) {
 
-        int length;
-        UUID[] newArray;
-        if (oldArray.length >= 50) {
-            newArray = new UUID[50];
-            length = 49;
-        } else {
-            length = oldArray.length;
-            newArray = new UUID[length + 1];
-        }
+        UUID[] newArray = new UUID[oldArray.length + 1];
+
         newArray[0] = value;
-        for (int i = 0; i < length;) {
+        for (int i = 0; i < oldArray.length;) {
             newArray[i + 1] = oldArray[i];
             i++;
         }
