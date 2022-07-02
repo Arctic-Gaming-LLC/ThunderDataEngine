@@ -1,9 +1,9 @@
 package net.pentlock.thunderdataengine.listeners;
 
+import dev.arcticgaming.thunderlib.DataUtils.ArrayUtil;
 import net.pentlock.thunderdataengine.profiles.Guild;
 import net.pentlock.thunderdataengine.profiles.Party;
 import net.pentlock.thunderdataengine.profiles.ThunderPlayer;
-import net.pentlock.thunderdataengine.utilities.ArrayUtil;
 import net.pentlock.thunderdataengine.utilities.GuildUtil;
 import net.pentlock.thunderdataengine.utilities.PartyUtil;
 import net.pentlock.thunderdataengine.utilities.PlayerUtil;
