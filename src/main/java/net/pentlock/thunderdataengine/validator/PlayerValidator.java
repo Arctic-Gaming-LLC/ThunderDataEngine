@@ -9,7 +9,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PlayerValidator {
-
+    /**
+     * Validates the players profile
+     *
+     * @param thunderPlayer
+     * @param player
+     */
     public PlayerValidator(ThunderPlayer thunderPlayer, Player player) {
 
         if (thunderPlayer.getName() == null) {
@@ -86,6 +91,10 @@ public class PlayerValidator {
 
         if (thunderPlayer.getSessionStats() == null) {
             thunderPlayer.setSessionStats(runSessionSetup());
+        }
+
+        if (thunderPlayer.getBank64() == null) {
+            thunderPlayer.setBank64("");
         }
 
         PlayerUtil.updatePlayer(thunderPlayer.getUUID(), thunderPlayer);
