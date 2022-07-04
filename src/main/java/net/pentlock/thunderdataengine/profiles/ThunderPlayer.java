@@ -120,7 +120,7 @@ public class ThunderPlayer {
      * @param tag Player's Chat Tag
      * @param lastKnownLocation Player's last known location, used on teleports
      * @param sessionStats Players temporary session stats
-     * @param bank64 Inventory of player bank
+     * @param bank64 Inventory of player bank64
      */
     public ThunderPlayer(String name, double money, int level, long exp, String grave, String graveWorld, int maxHealth, double currentHealth,
                          int luck, int physicalDefense, int archeryDefense, int physicalOffense, int archeryOffense, double criticalStrike,

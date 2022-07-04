@@ -9,7 +9,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PlayerValidator {
-
+    /**
+     * Validates the players profile
+     *
+     * @param thunderPlayer
+     * @param player
+     */
     public PlayerValidator(ThunderPlayer thunderPlayer, Player player) {
 
         if (thunderPlayer.getName() == null) {
