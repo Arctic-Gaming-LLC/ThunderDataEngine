@@ -88,6 +88,10 @@ public class PlayerValidator {
             thunderPlayer.setSessionStats(runSessionSetup());
         }
 
+        if (thunderPlayer.getBank64() == null) {
+            thunderPlayer.setBank64("");
+        }
+
         PlayerUtil.updatePlayer(thunderPlayer.getUUID(), thunderPlayer);
     }
 

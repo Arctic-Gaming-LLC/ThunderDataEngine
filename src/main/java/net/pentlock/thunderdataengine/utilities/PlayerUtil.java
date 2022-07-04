@@ -81,14 +81,16 @@ public class PlayerUtil {
                                              long logout, long login, boolean godMode, boolean acceptingPay, int playerKills, int mobKills, int deaths, int fallDeaths,
                                              long totalPlayTime, long lastDeathTime, int timesLoggedIn, double moneyFromDrops, long[] dataPlayTime,
                                              double[] dataPvpDamage, double[] dataPvpDefenseDamage, double[] dataPveDamage, double[] dataPveDefenseDamage,
-                                             double[] dataWealthGain, double[] dataMoneyDrops, String tag, String[] lastKnownLocation, double[] dataWealth, Map<String,double[]> sessionStats) {
+                                             double[] dataWealthGain, double[] dataMoneyDrops, String tag, String[] lastKnownLocation, double[] dataWealth,
+                                             Map<String,double[]> sessionStats, String bank64, String nickName) {
 
         ThunderPlayer thunderPlayer = new ThunderPlayer(name, money, level, exp, grave, graveWorld, maxHealth, currentHealth, luck, physicalDefense, archeryDefense,
                 physicalOffense, archeryOffense, criticalStrike, criticalPower, dateCreated, uuid, guild, party, pvpEnabled, perkPoints,
                 physicalDefensePerkPoints, archeryDefensePerkPoints, physicalOffensePerkPoints, archeryOffensePerkPoints, healthPerkPoints,
                 criticalStrikePerkPoints, criticalPowerPerkPoints, houses, logout, login, godMode, acceptingPay, playerKills,
                 mobKills, deaths, fallDeaths, totalPlayTime, lastDeathTime, timesLoggedIn, moneyFromDrops, dataPlayTime, dataPvpDamage,
-                dataPvpDefenseDamage, dataPveDamage, dataPveDefenseDamage, dataWealthGain, dataMoneyDrops, tag, lastKnownLocation, dataWealth, sessionStats);
+                dataPvpDefenseDamage, dataPveDamage, dataPveDefenseDamage, dataWealthGain, dataMoneyDrops, tag, lastKnownLocation, dataWealth,
+                sessionStats, bank64, nickName);
 
         THUNDER_PLAYERS.put(uuid, thunderPlayer);
 
@@ -181,6 +183,8 @@ public class PlayerUtil {
         thunderPlayer.setLastKnownLocation(newThunderPlayer.getLastKnownLocation());
         thunderPlayer.setDataWealth(newThunderPlayer.getDataWealth());
         thunderPlayer.setSessionStats(newThunderPlayer.getSessionStats());
+        thunderPlayer.setBank64(newThunderPlayer.getBank64());
+        thunderPlayer.setNickName(newThunderPlayer.getNickName());
 
         return thunderPlayer;
     }

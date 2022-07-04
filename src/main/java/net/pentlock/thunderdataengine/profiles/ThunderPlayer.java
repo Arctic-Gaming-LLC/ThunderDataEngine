@@ -60,6 +60,8 @@ public class ThunderPlayer {
     @Setter @Getter private String[] lastKnownLocation;  // implemented in core
     @Setter @Getter private double[] dataWealth;   // implemented in TCS
     @Setter @Getter private Map<String, double[]> sessionStats;
+    @Setter @Getter private String bank64;
+    @Setter @Getter private String nickName;
 
     /**
      * <h3>Thunder Player Object</h3>
@@ -118,6 +120,7 @@ public class ThunderPlayer {
      * @param tag Player's Chat Tag
      * @param lastKnownLocation Player's last known location, used on teleports
      * @param sessionStats Players temporary session stats
+     * @param bank64 Inventory of player bank
      */
     public ThunderPlayer(String name, double money, int level, long exp, String grave, String graveWorld, int maxHealth, double currentHealth,
                          int luck, int physicalDefense, int archeryDefense, int physicalOffense, int archeryOffense, double criticalStrike,
@@ -127,7 +130,8 @@ public class ThunderPlayer {
                          long logout, long login, boolean godMode, boolean acceptingPay, int playerKills, int mobKills, int deaths, int fallDeaths,
                          long totalPlayTime, long lastDeathTime, int timesLoggedIn, double moneyFromDrops, long[] dataPlayTime, double[] dataPvpDamage,
                          double[] dataPvpDefenseDamage, double[] dataPveDamage, double[] dataPveDefenseDamage, double[] dataWealthGain,
-                         double[] dataMoneyDrops, String tag, String[] lastKnownLocation, double[] dataWealth, Map<String, double[]> sessionStats) {
+                         double[] dataMoneyDrops, String tag, String[] lastKnownLocation, double[] dataWealth, Map<String, double[]> sessionStats,
+                         String bank64, String nickName) {
         this.name = name;
         this.money = money;
         this.level = level;
@@ -180,5 +184,8 @@ public class ThunderPlayer {
         this.lastKnownLocation = lastKnownLocation;
         this.dataWealth = dataWealth;
         this.sessionStats = sessionStats;
+        this.bank64 = bank64;
+        this.nickName = nickName;
+
     }
 }
