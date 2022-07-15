@@ -22,7 +22,7 @@ public class ArcheryOffenseCondition extends Condition {
         Player player = PlayerConverter.getPlayer(s);
         ThunderPlayer thunderPlayer = PlayerUtil.findPlayer(player.getUniqueId());
         if (thunderPlayer != null) {
-            return offense >= thunderPlayer.getArcheryOffense();
+            return offense <= thunderPlayer.getArcheryOffense();
         } else {
             return null;
         }

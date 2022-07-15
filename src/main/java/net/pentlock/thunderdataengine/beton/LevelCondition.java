@@ -22,7 +22,7 @@ public class LevelCondition extends Condition {
         Player player = PlayerConverter.getPlayer(s);
         ThunderPlayer thunderPlayer = PlayerUtil.findPlayer(player.getUniqueId());
         if (thunderPlayer != null) {
-            return required >= thunderPlayer.getLevel();
+            return required <= thunderPlayer.getLevel();
         } else {
             return null;
         }
