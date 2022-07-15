@@ -1,5 +1,6 @@
 package net.pentlock.thunderdataengine;
 
+import net.pentlock.thunderdataengine.beton.*;
 import net.pentlock.thunderdataengine.listeners.PlayerLoginListener;
 import net.pentlock.thunderdataengine.listeners.PlayerLogoutListener;
 import net.pentlock.thunderdataengine.profiles.ThunderPlayer;
@@ -7,6 +8,7 @@ import net.pentlock.thunderdataengine.utilities.FileNameCleaner;
 import net.pentlock.thunderdataengine.utilities.GuildUtil;
 import net.pentlock.thunderdataengine.utilities.HouseUtil;
 import net.pentlock.thunderdataengine.utilities.PlayerUtil;
+import org.betonquest.betonquest.BetonQuest;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -41,6 +43,13 @@ public final class ThunderDataEngine extends JavaPlugin implements Listener {
         if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
             new PlaceholderRegistry(this).register();
         }
+
+        BetonQuest bq = BetonQuest.getInstance();
+        bq.registerConditions("TCSLevel", LevelCondition.class);
+        bq.registerConditions("PhysicalDefense", PhysicalDefenseCondition.class);
+        bq.registerConditions("ArcheryDefense", ArcheryDefenseCondition.class);
+        bq.registerConditions("PhysicalOffense", PhysicalOffenseCondition.class);
+        bq.registerConditions("ArcheryOffense", ArcheryOffenseCondition.class);
 
         runnableSaveJson();
         initiateFiles();
