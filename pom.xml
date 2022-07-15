@@ -6,7 +6,7 @@
 
     <groupId>net.pentlock</groupId>
     <artifactId>ThunderDataEngine</artifactId>
-    <version>0.2.24</version>
+    <version>0.2.25</version>
     <packaging>jar</packaging>
 
     <name>ThunderDataEngine</name>
@@ -70,6 +70,10 @@
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
+        <repository>
+            <id>betonquest-repo</id>
+            <url>https://betonquest.org/nexus/repository/betonquest/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -95,6 +99,12 @@
             <groupId>com.github.Arctic-Gaming-LLC</groupId>
             <artifactId>ThunderLib</artifactId>
             <version>1.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.betonquest</groupId>
+            <artifactId>betonquest</artifactId>
+            <version>2.0.0-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
