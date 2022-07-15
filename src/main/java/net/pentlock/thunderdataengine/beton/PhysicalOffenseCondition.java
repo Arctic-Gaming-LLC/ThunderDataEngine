@@ -21,7 +21,7 @@ public class PhysicalOffenseCondition extends Condition {
         Player player = PlayerConverter.getPlayer(s);
         ThunderPlayer thunderPlayer = PlayerUtil.findPlayer(player.getUniqueId());
         if (thunderPlayer != null) {
-            return offense >= thunderPlayer.getPhysicalOffense();
+            return offense <= thunderPlayer.getPhysicalOffense();
         } else {
             return null;
         }

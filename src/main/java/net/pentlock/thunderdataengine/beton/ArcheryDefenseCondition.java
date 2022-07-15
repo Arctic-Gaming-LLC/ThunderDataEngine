@@ -22,7 +22,7 @@ public class ArcheryDefenseCondition extends Condition {
         Player player = PlayerConverter.getPlayer(s);
         ThunderPlayer thunderPlayer = PlayerUtil.findPlayer(player.getUniqueId());
         if (thunderPlayer != null) {
-            return defense >= thunderPlayer.getPhysicalDefense();
+            return defense <= thunderPlayer.getPhysicalDefense();
         } else {
             return null;
         }
